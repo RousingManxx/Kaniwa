@@ -50,10 +50,12 @@
 
         <Button
             android:id="@+id/signButton"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registrar" />
+            android:text="Registrar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <Space
             android:layout_width="wrap_content"
