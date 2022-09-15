@@ -26,8 +26,7 @@ class InitialActivity : AppCompatActivity() {
     private fun cambiarActivity(){
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this,MainActivity::class.java)
-            ActivityOptions.makeSceneTransitionAnimation(this)
-            startActivity(intent)},DURATION)
+            startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())},DURATION)
     }
 }
 
