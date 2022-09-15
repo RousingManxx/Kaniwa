@@ -1,24 +1,20 @@
 package com.example.kaniwa
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.kaniwa.databinding.ActivityAuthBinding
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_auth.*
-import kotlinx.android.synthetic.main.activity_login.*
-import java.lang.StringBuilder
-
 
 class AuthActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        val screenSplash = installSplashScreen()
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+    private lateinit var binding: ActivityAuthBinding
 
-        screenSplash.setKeepOnScreenCondition{false}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAuthBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         //Analytics Event
         val analytics = FirebaseAnalytics.getInstance(this)
@@ -32,9 +28,9 @@ class AuthActivity : AppCompatActivity() {
 
     private  fun  setup(){
         title="Registro de Nuevo Usuario"
-        signButton.setOnClickListener{
-            if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.text.toString(),passwordEditText.text.toString()).addOnCompleteListener(){
+        binding.signButton.setOnClickListener{
+            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()){
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.emailEditText.text.toString(),binding.passwordEditText.text.toString()).addOnCompleteListener(){
                     if (it.isSuccessful){
                         showHome(it.result?.user?.email ?:"",ProviderType.BASIC)
                     }else{
@@ -43,8 +39,6 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 
     private fun showAlert(){

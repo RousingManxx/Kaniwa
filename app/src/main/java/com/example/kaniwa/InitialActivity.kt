@@ -1,37 +1,33 @@
 package com.example.kaniwa
-
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotlinx.android.synthetic.main.activity_initial.*
-import kotlinx.android.synthetic.main.activity_login.*
+import android.os.Handler
+import android.os.Looper
+import android.view.WindowManager
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class InitialActivity : AppCompatActivity() {
+    private val DURATION: Long = 2000
     override fun onCreate(savedInstanceState: Bundle?) {
-        val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_initial)
-
-        screenSplash.setKeepOnScreenCondition{false}
         //Eliminar el action bar de la pantalla
         supportActionBar?.hide()
-
-        listenerBotones()
-    }
-    private  fun listenerBotones(){
-        botonRegistrar.setOnClickListener{
-
-            val authIntent = Intent(this,AuthActivity::class.java).apply {}
-            startActivity(authIntent)
-        }
-        botonIniciarSesion.setOnClickListener{
-            val authIntent = Intent(this,LoginActivity::class.java).apply {}
-            startActivity(authIntent)
-
-        }
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        val logotipo = findViewById<ImageView>(R.id.logotipo)
+        Glide.with(this).load(R.drawable.logotipo).transition(DrawableTransitionOptions.withCrossFade()).into(logotipo)
+        cambiarActivity()
     }
 
-
+    private fun cambiarActivity(){
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this,MainActivity::class.java)
+            ActivityOptions.makeSceneTransitionAnimation(this)
+            startActivity(intent)},DURATION)
+    }
 }
+

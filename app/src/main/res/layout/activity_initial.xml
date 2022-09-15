@@ -7,46 +7,19 @@
     android:background="#FFFFFF"
     tools:context=".InitialActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/logotipo"
             android:layout_width="283dp"
             android:layout_height="276dp"
-            app:srcCompat="@drawable/logofei" />
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="300dp"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logotipo" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <Button
-            android:id="@+id/botonIniciarSesion"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="301dp"
-            android:layout_height="wrap_content"
-            android:text="Iniciar Sesión"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp" />
-
-        <Button
-            android:id="@+id/botonRegistrar"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="301dp"
-            android:layout_height="wrap_content"
-            android:text="Registrar Nuevo Usuario"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
