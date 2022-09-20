@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Kaniwa</string>
     <string name="registrar">Registrar</string>
+    <string name="prefs_file">com.example.kaniwa.PREFERENCE_FILE_KEY</string>
 </resources>
