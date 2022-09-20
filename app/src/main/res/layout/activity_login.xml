@@ -6,15 +6,24 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".LoginActivity">
 
         <ImageView
-            android:id="@+id/logotipo"
-            android:layout_width="230dp"
-            android:layout_height="45dp"
-            app:srcCompat="@drawable/logotipo"
-            android:layout_marginBottom="100dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:paddingBottom="48dp"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
+            android:paddingTop="76dp"
+            app:srcCompat="@drawable/logo_kaniwa_white"
+            android:background="@color/azul_UV"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/login_redondeado">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextField"
@@ -73,4 +82,28 @@
             android:textAlignment="center"
             android:textColor="@color/azul_UV"
             android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                        <View
+                            android:layout_width="200dp"
+                            android:layout_height="2dp"
+                            android:background="@color/gris"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:text="OR"
+                            android:textAlignment="center"
+                            android:textColor="@color/gris"
+                            android:textStyle="bold" />
+                        <View
+                            android:layout_width="200dp"
+                            android:layout_height="2dp"
+                            android:background="@color/gris"/>
+                </LinearLayout>
+        </LinearLayout>
 </LinearLayout>

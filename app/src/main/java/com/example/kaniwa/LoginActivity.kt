@@ -16,6 +16,8 @@ class LoginActivity : AppCompatActivity() {
         setup()
     }
 
+    override fun onBackPressed() {}
+
     /*private fun setup(){
         title = "Inicio de Sesión"
         binding.loginButton.setOnClickListener {

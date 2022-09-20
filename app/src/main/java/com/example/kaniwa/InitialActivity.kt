@@ -19,7 +19,7 @@ class InitialActivity : AppCompatActivity() {
         supportActionBar?.hide()
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val logotipo = findViewById<ImageView>(R.id.logotipo)
-        Glide.with(this).load(R.drawable.logotipo).transition(DrawableTransitionOptions.withCrossFade()).into(logotipo)
+        Glide.with(this).load(R.drawable.logo_kaniwa).transition(DrawableTransitionOptions.withCrossFade()).into(logotipo)
         cambiarActivity()
     }
 

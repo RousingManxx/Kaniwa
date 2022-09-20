@@ -4,4 +4,5 @@
     <color name="naranja_UV">#f08800</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gris">#CCCCCC</color>
 </resources>
