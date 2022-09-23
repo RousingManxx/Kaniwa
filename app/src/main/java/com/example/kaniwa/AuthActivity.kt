@@ -52,8 +52,10 @@ class AuthActivity : AppCompatActivity() {
     private  fun  setup(){
         title="Registro de Nuevo Usuario"
         binding.signButton.setOnClickListener{
-            if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.emailEditText.text.toString(),binding.passwordEditText.text.toString()).addOnCompleteListener(){
+            if (binding.emailTextField.toString().isNotEmpty() && binding.passwordTextField.toString().isNotEmpty()){
+                println(binding.emailTextField.toString())
+                println(binding.passwordTextField.toString())
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.emailTextField.editText?.text.toString(),binding.passwordTextField.editText?.text.toString()).addOnCompleteListener(){
                     if (it.isSuccessful){
                         showHome(it.result?.user?.email ?:"",ProviderType.BASIC)
                     }else{

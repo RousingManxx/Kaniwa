@@ -56,6 +56,11 @@ class LoginActivity : AppCompatActivity() {
             val authIntent = Intent(this,AuthActivity::class.java).apply{}
             startActivity(authIntent)
         }
+
+        binding.recuperar.setOnClickListener(){
+            val forgotIntent = Intent(this, ForgotPassActivity::class.java).apply{}
+            startActivity(forgotIntent)
+        }
     }
 
     private fun showAlert(){
