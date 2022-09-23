@@ -70,16 +70,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/googlebutton"
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="118dp"
-            android:layout_height="wrap_content"
-            android:text="Google"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF"
-            app:icon="@drawable/logogoogle" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -11,86 +12,89 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:paddingBottom="48dp"
+            android:background="@color/azul_UV"
             android:paddingLeft="48dp"
-            android:paddingRight="48dp"
             android:paddingTop="76dp"
-            app:srcCompat="@drawable/logo_kaniwa_white"
-            android:background="@color/azul_UV"/>
+            android:paddingRight="48dp"
+            android:paddingBottom="48dp"
+            app:srcCompat="@drawable/logo_kaniwa_white" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/login_redondeado"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@drawable/login_redondeado">
+            android:padding="16dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailTextField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Correo Electrónico"
-            app:startIconDrawable="@drawable/ic_email">
-
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailTextField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="Correo Electrónico"
+                    app:startIconDrawable="@drawable/ic_email">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordTextField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/ic_lock">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordTextField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="Contraseña"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_lock">
 
-        <TextView
-            android:id="@+id/recuperar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textAlignment="textEnd"
-            android:textColor="@color/azul_UV"/>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/boton_redondo"
-            android:text="Iniciar Sesión"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/recuperar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="¿Olvidaste tu contraseña?"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/azul_UV" />
 
-        <TextView
-            android:id="@+id/textLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="¿No tienes cuenta?"
-            android:textAlignment="center"
-            android:textColor="@color/azul_UV"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/boton_redondo"
+                    android:text="Iniciar Sesión"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="¿No tienes cuenta?"
+                    android:textAlignment="center"
+                    android:textColor="@color/azul_UV"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
                         <View
                             android:layout_width="200dp"
                             android:layout_height="2dp"
-                            android:background="@color/gris"/>
+                            android:background="@color/gris" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -100,10 +104,32 @@
                             android:textAlignment="center"
                             android:textColor="@color/gris"
                             android:textStyle="bold" />
+
                         <View
                             android:layout_width="200dp"
                             android:layout_height="2dp"
-                            android:background="@color/gris"/>
+                            android:background="@color/gris" />
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/googleButton"
+                            android:layout_width="134dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/boton_redondo"
+                            android:text="Google"
+                            android:textAlignment="center"
+                            android:textColor="#F8F7F7"
+                            app:icon="@drawable/logogoogle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                </LinearLayout>
+
         </LinearLayout>
 </LinearLayout>
