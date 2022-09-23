@@ -34,7 +34,7 @@ class AuthActivity : AppCompatActivity() {
         sesion()
     }
 
-    override fun onBackPressed() {}
+
 
     override fun onStart() {
         super.onStart()
