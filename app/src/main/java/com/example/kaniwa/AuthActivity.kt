@@ -39,11 +39,6 @@ class AuthActivity : AppCompatActivity() {
         sesion()
     }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7d938cb4958941ce960ebf36c0d294e377ec05f9
     override fun onStart() {
         super.onStart()
         binding.authlayout.visibility= View.VISIBLE
@@ -57,24 +52,8 @@ class AuthActivity : AppCompatActivity() {
             binding.authlayout.visibility= View.INVISIBLE
             showLogin(email, ProviderType.valueOf(provider))
         }
+    }
 
-    }
-    /*
-    private  fun  setup(){
-        title="Registro de Nuevo Usuario"
-        binding.signButton.setOnClickListener{
-            if (binding.emailTextField.toString().isNotEmpty() && binding.passwordTextField.toString().isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.emailTextField.editText?.text.toString(),binding.passwordTextField.editText?.text.toString()).addOnCompleteListener(){
-                    if (it.isSuccessful){
-                        showHome(it.result?.user?.email ?:"",ProviderType.BASIC)
-                    }else{
-                        showAlert()
-                    }
-                }
-            }
-        }
-    }
-    */
     private  fun  setup(){
         title="Registro de Nuevo Usuario"
         binding.signButton.setOnClickListener{
