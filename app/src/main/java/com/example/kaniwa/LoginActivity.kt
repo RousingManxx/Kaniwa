@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kaniwa.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -29,9 +30,8 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         //binding.loginlayout.visibility= View.VISIBLE
         this.setVisible(true)
-
-
     }
+
     private fun sesion(){
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
@@ -41,26 +41,7 @@ class LoginActivity : AppCompatActivity() {
             this.setVisible(false)
             showHome(email, ProviderType.valueOf(provider))
         }
-
     }
-
-    /*private fun setup(){
-        title = "Inicio de Sesión"
-        binding.loginButton.setOnClickListener {
-            if (binding.emailEditText2.text.isNotEmpty() && binding.passwordEditText2.text.isNotEmpty()) {
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                    binding.emailEditText2.text.toString(),
-                    binding.passwordEditText2.text.toString()
-                ).addOnCompleteListener() {
-                    if (it.isSuccessful) {
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                    } else {
-                        showAlert()
-                    }
-                }
-            }
-        }
-    }*/
 
     private fun setup(){
         binding.loginButton.setOnClickListener(){
@@ -70,13 +51,18 @@ class LoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener()
                 {
                     if (it.isSuccessful) {
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        if(FirebaseAuth.getInstance().currentUser?.isEmailVerified() == true) {
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        }else{
+                            Toast.makeText(this,"Favor de verificar su dirección de correo electrónico",Toast.LENGTH_LONG).show()
+                        }
                     } else {
                         showAlert()
                     }
                 }
             }
         }
+
         binding.googleButton.setOnClickListener {
             //configuracion
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id))

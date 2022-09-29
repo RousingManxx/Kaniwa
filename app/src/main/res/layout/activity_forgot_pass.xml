@@ -9,6 +9,30 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:textAlignment="center"
+        android:text="Olvidaste tu contraseña?"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:text="No te preocupes, te enviaremos un correo electrónico para que puedas cambiarla"
+        android:layout_marginBottom="12dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_lock_open"
+        app:tint="@color/gris_oscuro" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/forgotPassText"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -16,7 +40,8 @@
         android:layout_height="wrap_content"
         android:hint="Correo Electrónico"
         app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/ic_lock">
+        app:startIconDrawable="@drawable/ic_lock"
+        android:layout_marginTop="6dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -26,9 +51,11 @@
 
     <Button
         android:id="@+id/submit"
-        android:background="@drawable/boton_redondo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"/>
+        android:background="@drawable/boton_redondo"
+        android:text="Recuperar"
+        android:layout_marginTop="12dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

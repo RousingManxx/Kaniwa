@@ -118,17 +118,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                        <Button
+                        <ImageView
                             android:id="@+id/googleButton"
-                            android:layout_width="134dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/boton_redondo"
-                            android:text="Google"
-                            android:textAlignment="center"
-                            android:textColor="#F8F7F7"
-                            app:icon="@drawable/logogoogle"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/google_floating"/>
+
                 </LinearLayout>
 
         </LinearLayout>
