@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
     private fun showHome(email: String, provider: ProviderType){
-        val homeIntent = Intent(this,HomeActivity::class.java).apply {
+        val homeIntent = Intent(this, Maps::class.java).apply {
             putExtra("email",email)
             putExtra("provider",provider.name)
         }
