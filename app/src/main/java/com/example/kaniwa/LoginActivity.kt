@@ -1,9 +1,9 @@
 package com.example.kaniwa
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kaniwa.databinding.ActivityLoginBinding
@@ -93,7 +93,8 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
     private fun showHome(email: String, provider: ProviderType){
-        val homeIntent = Intent(this, Maps::class.java).apply {
+        //val homeIntent = Intent(this, Maps::class.java).apply {
+        val homeIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("email",email)
             putExtra("provider",provider.name)
         }
