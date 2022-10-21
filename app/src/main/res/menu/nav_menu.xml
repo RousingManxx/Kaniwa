@@ -6,8 +6,11 @@
         android:title="Mapa" />
     <item
         android:id="@+id/pruebaFragment"
-        android:title="Prueba" />
+        android:title="Costos de pasaje" />
     <item
         android:id="@+id/ejemplo"
         android:title="Ejemplo" />
+    <item
+        android:id="@+id/cerrar"
+        android:title="Cerrar sesión" />
 </menu>

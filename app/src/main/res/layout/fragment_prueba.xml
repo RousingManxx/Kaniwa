@@ -7,11 +7,36 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:background="@color/azul_UV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:textSize="60dp"
+        android:text="Costos de pasaje"
+        android:textColor="@color/white"/>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="100dp"
-        android:text="HOLA"
-        android:textColor="@color/azul_UV"/>
+        android:textSize="35dp"
+        android:text="General: $9 mxn\n
+Estudiante: $6 mxn\n inapam(3º edad): $6mxn"
+        android:textColor="@color/white"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:textSize="40dp"
+        android:text="Recordatorio:\n\n"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:text="\n los precios preferenciales
+son con credenial en mano"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
 
 </FrameLayout>

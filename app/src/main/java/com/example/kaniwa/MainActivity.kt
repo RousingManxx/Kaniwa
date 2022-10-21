@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         val navController:NavController= Navigation.findNavController(this,R.id.fragment)
         NavigationUI.setupWithNavController(navigationDrawer,navController)
     }
+   
+
     private fun setup(email: String, provider: String) {
         title = "Inicio"
         /*
@@ -56,4 +58,5 @@ class MainActivity : AppCompatActivity() {
             onBackPressed()
             */
     }
+
 }
