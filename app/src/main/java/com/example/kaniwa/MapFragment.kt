@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.kaniwa.databinding.ActivityLoginBinding
+import com.example.kaniwa.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
@@ -22,10 +24,18 @@ import com.google.android.gms.maps.model.*
 
 class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener{
 
+    private var _binding: FragmentMapBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var map:GoogleMap
     private lateinit var mapView:MapView
+
+    private var ban = false
+
+
     companion object{
         const val REQUEST_CODE_LOCATION = 0
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +49,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ):View?{
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        _binding = FragmentMapBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,18 +58,33 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         mapView.onCreate(savedInstanceState)
         mapView.onResume()
         mapView.getMapAsync(this);
+        listenerBoton()
     }
 
+    private fun listenerBoton(){
+        binding.fab.setOnClickListener{
+            Toast.makeText(getContext(), "Boton FAB", Toast.LENGTH_SHORT).show()
+            if(ban == false){
+                ban = true
+                ATAZ(ban)
+            }else if(ban == true){
+                ban = false
+                map.clear()
+            }
+
+        }
+    }
     override fun onMapReady(googleMap: GoogleMap?) {
         if (googleMap != null) {
             map = googleMap
             zoom()
-            ATAZ()
+            ATAZ(ban)
             paradasConocidas()
             ruta1()
             map.setOnMyLocationButtonClickListener(this) //Mensaje cuando se toque el boton de ubicación actual
             map.setOnMyLocationClickListener(this) //Corrdenadas de cuando se de clcick en la ubicación actual (NO el boton)
             enableLocation()
+
         }
     }
 
@@ -67,7 +93,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 4000,null)
     }
 
-    private fun ATAZ(){
+    private fun ATAZ(ban: Boolean): Boolean {
         val polylineOptions = PolylineOptions()
             .add(LatLng(19.513159, -96.875301)).add(LatLng(19.514231, -96.876293)).add(LatLng(19.514867, -96.877655))
             .add(LatLng(19.515570, -96.879629)).add(LatLng(19.515919, -96.879994)).add(LatLng(19.517322, -96.880932))
@@ -119,12 +145,14 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         val pattern = listOf(
             Dot(), Gap(10f), Dash(50f), Gap(10f)
         )
+        polyline.isVisible = ban
         polyline.pattern = pattern
         polyline.startCap = RoundCap()
         polyline.endCap = RoundCap()
         //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
         polyline.isClickable = true
         map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
+        return ban
     }
 
     private fun paradasConocidas(){
