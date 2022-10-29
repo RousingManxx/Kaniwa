@@ -67,13 +67,14 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
             if(ban == false){
                 ban = true
                 ATAZ(ban)
+
             }else if(ban == true){
                 ban = false
                 map.clear()
             }
-
         }
     }
+
     override fun onMapReady(googleMap: GoogleMap?) {
         if (googleMap != null) {
             map = googleMap
@@ -90,7 +91,17 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     private fun zoom(){
         val coordenadas = LatLng(19.527409, -96.921380)
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 4000,null)
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 2000,null)
+    }
+
+    fun setZoom(latLng: LatLng){
+        val coordenadas = latLng
+        println(coordenadas)
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 2000,null)
+    }
+
+    fun prueba(texto: String){
+        println(String)
     }
 
     private fun ATAZ(ban: Boolean): Boolean {
