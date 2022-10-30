@@ -1,9 +1,12 @@
 package com.example.kaniwa
+import android.app.ActivityOptions
 import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.kaniwa.databinding.ActivityLoginBinding
@@ -16,6 +19,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private  val GOOGLE_SIGN_IN = 100
+    private val DURATION: Long = 2000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -39,7 +43,14 @@ class LoginActivity : AppCompatActivity() {
             //binding.loginlayout.visibility= View.INVISIBLE
             this.setVisible(false)
             showHome(email, ProviderType.valueOf(provider))
+        }else{
+            cambiarActivity()
         }
+    }
+    private fun cambiarActivity(){
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this,TutorialActivity::class.java)
+            startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())},DURATION)
     }
 
     private fun setup(){
