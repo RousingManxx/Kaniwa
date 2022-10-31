@@ -9,7 +9,7 @@
         android:title="Costos de pasaje" />
     <item
         android:id="@+id/ejemplo"
-        android:title="Ejemplo" />
+        android:title="Favoritos" />
     <item
         android:id="@+id/cerrar"
         android:title="Cerrar sesión" />

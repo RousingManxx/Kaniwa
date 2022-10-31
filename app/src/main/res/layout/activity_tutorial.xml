@@ -7,18 +7,19 @@
     tools:context=".TutorialActivity">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/pager"
-        tools:context=".ui.screens.intro.IntroViewPagerFragment"/>
+        android:layout_width="match_parent"
+        android:layout_height="661dp"
+        tools:context=".ui.screens.intro.IntroViewPagerFragment" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="@color/azul_UV"
         app:tabBackground="@drawable/tab_pager_selector"
         app:tabGravity="center"
-        app:tabIndicatorHeight="0dp"
-        android:layout_gravity="bottom"/>
+        app:tabIndicatorHeight="0dp" />
 
 </FrameLayout>

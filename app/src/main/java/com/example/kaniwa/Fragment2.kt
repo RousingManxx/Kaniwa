@@ -24,19 +24,17 @@ class Fragment2 : Fragment() {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_2, container, false)
          _binding = Fragment2Binding.inflate(inflater, container, false)
-        binding.next.setOnClickListener{
+
+       /* binding.next.setOnClickListener{
             cambiarActivity()
-        }
+        }*/
         return binding.root
 
-
-
-
     }
 
 
-    private fun cambiarActivity(){
+    /*private fun cambiarActivity(){
         val actividad = getActivity()
         actividad?.finish()
-    }
+    }*/
 }

@@ -8,7 +8,7 @@
             android:thickness="4dp"
             android:useLevel="false">
 
-            <solid android:color="@color/azul_UV"/>
+            <solid android:color="@color/naranja_UV"/>
         </shape>
     </item>
 </layer-list>
