@@ -26,16 +26,17 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var map:GoogleMap
     private lateinit var mapView:MapView
-
     private var ban = false
-
 
     companion object{
         const val REQUEST_CODE_LOCATION = 0
-
+        lateinit var instance: MapFragment
+        @JvmName("getInstance1")
+        fun getInstance(): MapFragment {
+            return instance
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +50,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ):View?{
+        instance = this
         _binding = FragmentMapBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -94,14 +96,11 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 2000,null)
     }
 
-    fun setZoom(latLng: LatLng){
+    public fun setZoom(latLng: LatLng){
         val coordenadas = latLng
-        println(coordenadas)
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 2000,null)
-    }
-
-    fun prueba(texto: String){
-        println(String)
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 17f), 2000,null)
+        val ubicacion = MarkerOptions().position(coordenadas).title("Ubicación buscada")
+        map.addMarker(ubicacion)
     }
 
     private fun ATAZ(ban: Boolean): Boolean {

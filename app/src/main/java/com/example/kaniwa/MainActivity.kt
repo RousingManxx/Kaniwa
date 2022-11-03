@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -95,9 +96,7 @@ class MainActivity : AppCompatActivity(){
         autocompleteFragment.setOnPlaceSelectedListener(object: PlaceSelectionListener{
             override fun onPlaceSelected(place: Place){
                 val latLong = "latitud ${place.latLng.latitude!!} longitud ${place.latLng?.longitude}"
-                Toast.makeText(applicationContext,latLong,Toast.LENGTH_LONG).show()
-                //val fragment = supportFragmentManager.findFragmentById(R.id.map) as MapFragment?
-                //fragment!!.prueba("HOLA CARA DE BOLA")
+                buscarUbi(place.latLng)
             }
             override fun onError(status: Status) {
                 Toast.makeText(applicationContext,"No se selecciono destino",Toast.LENGTH_LONG).show()
@@ -118,5 +117,14 @@ class MainActivity : AppCompatActivity(){
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
             */
+    }
+
+    private fun buscarUbi(latLng: LatLng){
+        val mapFrag = MapFragment.getInstance()
+        if(mapFrag!=null){
+            mapFrag.setZoom(latLng)
+        }else{
+            Toast.makeText(applicationContext, "MapFragment null",Toast.LENGTH_LONG).show()
+        }
     }
 }
