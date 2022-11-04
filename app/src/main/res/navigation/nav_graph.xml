@@ -10,7 +10,7 @@
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
-        android:id="@+id/pruebaFragment"
+        android:id="@+id/costosFragment"
         android:name="com.example.kaniwa.PruebaFragment"
         android:label="fragment_prueba"
         tools:layout="@layout/fragment_prueba" />

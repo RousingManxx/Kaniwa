@@ -256,9 +256,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
             MarkerOptions()
                 .position(c0)
                 .title("Ruta 1: Parada-01")
-            //.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_paradas))
         )
-
         //map.addMarker(cc0)
 
         // Av. Manuel Ávila Camacho 290, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver., México
@@ -611,96 +609,518 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
             .title("Ruta 1 : Parada-51")
         map.addMarker(cc57)
 
-        /*//
-        val c58 = LatLng()
+        //Carr. Veracruz-Xalapa 473, Rubi Animas, 91194 Xalapa-Enríquez, Ver., México
+        val c58 = LatLng(19.5122659854283, -96.8745788908467)
         val cc58= MarkerOptions()
             .position(c58)
             .title("Ruta 1 : Parada-52")
         map.addMarker(cc58)
 
-        //
-        val c59 = LatLng()
+        //Veracruz 140, Rubi Animas, 91194 Xalapa-Enríquez, Ver., México
+        val c59 = LatLng(19.513638316544554, -96.87566932884106)
         val cc59= MarkerOptions()
             .position(c59)
             .title("Ruta 1 : Parada-53")
         map.addMarker(cc59)
 
-        //
-        val c60 = LatLng()
+        //Carr. Veracruz-Xalapa 16, Dos Vistas Las Animas, Lomas de Oro, 91190 Xalapa-Enríquez, Ver., México
+        val c60 = LatLng(19.51845331166297, -96.8825032706483)
         val cc60= MarkerOptions()
             .position(c60)
             .title("Ruta 1 : Parada-54")
         map.addMarker(cc60)
 
-        //
-        val c61 = LatLng()
+        //G4C8+52 Xalapa-Enríquez, Veracruz, México
+        val c61 = LatLng(19.520452655085364, -96.88497196717314)
         val cc61= MarkerOptions()
             .position(c61)
             .title("Ruta 1 : Parada-55")
         map.addMarker(cc61)
 
-        //
-        val c62 = LatLng()
+        //Carr. Xalapa Veracruz 191, Jardines de las Animas, 91190 Xalapa-Enríquez, Ver., México
+        val c62 = LatLng(19.52196284814631, -96.89132771393463)
         val cc62= MarkerOptions()
             .position(c62)
             .title("Ruta 1 : Parada-56")
         map.addMarker(cc62)
 
-        //
-        val c63 = LatLng()
+        //Av. Lázaro Cárdenas 104, Campo Nuevo, 91198 Xalapa-Enríquez, Ver., México
+        val c63 = LatLng(19.5226025474966, -96.89438420113508)
         val cc63= MarkerOptions()
             .position(c63)
             .title("Ruta 1 : Parada-57")
         map.addMarker(cc63)
 
-        //
-        val c64 = LatLng()
+        //C. Lázaro Cárdenas 449, Col. Badillo, 91190 Xalapa-Enríquez, Ver., México
+        val c64 = LatLng(19.5226025474966, -96.89438420113508)
         val cc64= MarkerOptions()
             .position(c64)
             .title("Ruta 1 : Parada-58")
         map.addMarker(cc64)
 
-        //
-        val c65 = LatLng()
+        //  C. Lázaro Cárdenas 449, Col. Badillo, 91190 Xalapa-Enríquez, Ver., México
+        val c65 = LatLng(19.529390242886645, -96.89984538409963)
         val cc65= MarkerOptions()
             .position(c65)
             .title("Ruta 1 : Parada-59")
         map.addMarker(cc65)
 
-        //
-        val c66 = LatLng()
+        //C. Lázaro Cárdenas 445, Encinal, 91180 Xalapa-Enríquez, Ver., México
+        val c66 = LatLng(19.53238516997482, -96.9053768428033)
         val cc66= MarkerOptions()
             .position(c66)
             .title("Ruta 1 : Parada-60")
         map.addMarker(cc66)
 
-        //
-        val c67 = LatLng()
+        //C. Lázaro Cárdenas 423, Encinal, 91180 Xalapa-Enríquez, Ver., México
+        val c67 = LatLng(19.532802265508142, -96.90614931895534)
         val cc67= MarkerOptions()
             .position(c67)
             .title("Ruta 1 : Parada-61")
         map.addMarker(cc67)
 
-        //
-        val c68 = LatLng()
+        //91170, Av Ferrocarril Interoceánico 146, El Mirador, 91170 Xalapa-Enríquez, Ver., México
+        val c68 = LatLng(19.538928216713305, -96.90771966921983)
         val cc68= MarkerOptions()
             .position(c68)
             .title("Ruta 1 : Parada-62")
         map.addMarker(cc68)
 
-        //
-        val c69 = LatLng()
+        //Plaza Andador Encanto, C. Lázaro Cárdenas Local #3, Jardines de Xalapa, 91179 Xalapa-Enríquez, Ver., México
+        val c69 = LatLng(19.542561651526785, -96.90857912159468)
         val cc69= MarkerOptions()
             .position(c69)
             .title("Ruta 1 : Parada-63")
         map.addMarker(cc69)
 
-        //
-        val c70 = LatLng()
+        //Av. Lázaro Cárdenas 560, 7 de Noviembre, 91143 Xalapa-Enríquez, Ver., México
+        val c70 = LatLng(19.542561651526785, -96.90857912159468)
         val cc70= MarkerOptions()
             .position(c70)
             .title("Ruta 1 : Parada-64")
-        map.addMarker(cc70)*/
+        map.addMarker(cc70)
+
+        //Av. Lázaro Cárdenas 560, 7 de Noviembre, 91143 Xalapa-Enríquez, Ver., México
+        val c71 = LatLng(19.55132773573054, -96.91289788500367)
+        val cc71= MarkerOptions()
+            .position(c71)
+            .title("Ruta 1 : Parada-65")
+        map.addMarker(cc71)
+
+        //Av Miguel Aleman carret.Ver-Mexico, C. Lázaro Cárdenas 842, Heroes Ferrocarrileros, 91110 Xalapa-Enríquez, Ver.
+        val c72 = LatLng(19.553673243979727, -96.91388495543254)
+        val cc72= MarkerOptions()
+            .position(c72)
+            .title("Ruta 1 : Parada-66")
+        map.addMarker(cc72)
+
+        //C. Lázaro Cárdenas 443, Ferrocarrilera, 91120 Xalapa-Enríquez, Ver., México
+        val c73 = LatLng(19.556549026443943, -96.91536307920053)
+        val cc73= MarkerOptions()
+            .position(c73)
+            .title("Ruta 1 : Parada-67")
+        map.addMarker(cc71)
+
+        //C. Lázaro Cárdenas 17, Rafael Lucio, 91110 Xalapa-Enríquez, Ver., México
+        val c74 = LatLng(19.558162559400614, -96.91718685461811)
+        val cc74= MarkerOptions()
+            .position(c74)
+            .title("Ruta 1 : Parada-68")
+        map.addMarker(cc74)
+
+        //C. Lázaro Cárdenas 169, Rafael Lucio, 91110 Xalapa-Enríquez, Ver., México
+        val c75 = LatLng(19.560912332768318, -96.92432693436007)
+        val cc75= MarkerOptions()
+            .position(c75)
+            .title("Ruta 1 : Parada-69")
+        map.addMarker(cc75)
+
+        //Av. Lázaro Cárdenas Y Plaza Crital 984, Rafael Lucio, 91110 Xalapa-Enríquez, Ver., México
+        val c76 = LatLng(19.563037194779845, -96.92872328233977)
+        val cc76= MarkerOptions()
+            .position(c76)
+            .title("Ruta 1 : Parada-70")
+        map.addMarker(cc76)
+
+        //Av. Adolfo Ruiz Cortines 863, U.H. del Bosque, 91010 Xalapa-Enríquez, Ver., México
+        val c77 = LatLng(19.56230884440318, -96.92962744438579)
+        val cc77= MarkerOptions()
+            .position(c77)
+            .title("Ruta 1 : Parada-71")
+        map.addMarker(cc77)
+
+        //Estacionamiento Super ISSTE, Av. Xalapa 59, U.H. del Bosque, 91010 Xalapa-Enríquez, Ver., México
+        val c78 = LatLng(19.560194228778936, -96.92885164367571)
+        val cc78= MarkerOptions()
+            .position(c78)
+            .title("Ruta 1 : Parada-72")
+        map.addMarker(cc78)
+
+        //Av. Xalapa s/n, Unidad Magisterial, 91110 Xalapa-Enríquez, Ver.
+        val c79 = LatLng(19.554046924321757, -96.92926068375091)
+        val cc79= MarkerOptions()
+            .position(c79)
+            .title("Ruta 1 : Parada-73")
+        map.addMarker(cc79)
+
+        //Unidad Magisterial, 91017 Centro, Ver.
+        val c80 = LatLng(19.551522682518808, -96.92970226278251)
+        val cc80= MarkerOptions()
+            .position(c80)
+            .title("Ruta 1 : Parada-74")
+        map.addMarker(cc80)
+
+        //Av. Orizaba 185 Col, Obrero Campesina, 91020 Xalapa-Enríquez, Ver.
+        val c81 = LatLng(19.54867019865691, -96.92988468971025)
+        val cc81= MarkerOptions()
+            .position(c81)
+            .title("Ruta 1 : Parada-75")
+        map.addMarker(cc81)
+
+        //Av. Xalapa No. 155, Obrero Campesina, 91020 Xalapa-Enríquez, Ver., México
+        val c82 = LatLng(19.546649496091927, -96.92859529341867)
+        val cc82= MarkerOptions()
+            .position(c82)
+            .title("Ruta 1 : Parada-76")
+        map.addMarker(cc82)
+
+        //Ernesto Ortiz Medina 1, Aguacatal, 91020 Xalapa-Enríquez, Ver., México
+        val c83 = LatLng(19.542882617558764, -96.92738302101789)
+        val cc83= MarkerOptions()
+            .position(c83)
+            .title("Ruta 1 : Parada-77")
+        map.addMarker(cc83)
+    }
+
+    private fun ruta2(){
+        //Av. Xalapa 73, Obrero Campesina, 91020 Xalapa-Enríquez, Ver., México
+        val c01 = LatLng(19.54290379391993, -96.92740439152757)
+        val cc01= MarkerOptions()
+            .position(c01)
+            .title("Ruta 2 : Parada-01")
+        map.addMarker(cc01)
+
+        //Av. Manuel Ávila Camacho 290, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver., México
+        val c02 = LatLng(19.539828304542322, -96.9269260265749)
+        val cc02= MarkerOptions()
+            .position(c02)
+            .title("Ruta 2 : Parada-02")
+        map.addMarker(cc02)
+
+        //Av. Manuel Ávila Camacho 188, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver., México
+        val c03 = LatLng(19.53606175945289, -96.93135957385441)
+        val cc03= MarkerOptions()
+            .position(c03)
+            .title("Ruta 2 : Parada-03")
+        map.addMarker(cc03)
+
+        //C. Ignacio de la Llave 16 Altos, Represa del Carmen, 91050 Xalapa-Enríquez, Ver., México
+        val c04 = LatLng(19.532099927888673, -96.93411806272037)
+        val cc04= MarkerOptions()
+            .position(c04)
+            .title("Ruta 2 : Parada-04")
+        map.addMarker(cc04)
+
+        //Mora Beristain 281, Benito Juárez, 91070 Xalapa-Enríquez, Ver., México
+        val c05 = LatLng(19.525462524243107, -96.93385099655845)
+        val cc05= MarkerOptions()
+            .position(c05)
+            .title("Ruta 2 : Parada-05")
+        map.addMarker(cc05)
+
+        //Av Venustiano Carranza 38, Francisco I. Madero, 91070 Xalapa-Enríquez, Ver., México
+        val c06 = LatLng(19.523615294710655, -96.93134390568473)
+        val cc06= MarkerOptions()
+            .position(c06)
+            .title("Ruta 2 : Parada-06")
+        map.addMarker(cc06)
+
+        //Av Venustiano Carranza 91, Venustiano Carranza, 91080 Xalapa-Enríquez, Ver., México
+        val c07 = LatLng(19.52237186133981, -96.92858534686054)
+        val cc07= MarkerOptions()
+            .position(c07)
+            .title("Ruta 2 : Parada-07")
+        map.addMarker(cc07)
+
+        //Poeta Angel Núñez Beltrán 21, Felipe Carrillo Puerto, 91080 Xalapa-Enríquez, Ver., México
+        val c08 = LatLng(19.521338249423263, -96.92640433650502)
+        val cc08= MarkerOptions()
+            .position(c08)
+            .title("Ruta 2 : Parada-08")
+        map.addMarker(cc08)
+
+        //Av Venustiano Carranza 148, Felipe Carrillo Puerto, 91080 Xalapa-Enríquez, Ver., México
+        val c09 = LatLng(19.521938142911402, -96.92603234201778)
+        val cc09= MarkerOptions()
+            .position(c09)
+            .title("Ruta 2 : Parada-09")
+        map.addMarker(cc09)
+
+        // Av Venustiano Carranza 310, Felipe Carrillo Puerto, 91080 Xalapa-Enríquez, Ver., México
+        val c10 = LatLng(19.518906749935997, -96.92243557772092)
+        val cc10= MarkerOptions()
+            .position(c10)
+            .title("Ruta 2 : Parada-10")
+        map.addMarker(cc10)
+
+        //Universitario Gonzalo Aguirre Beltrán 1136, Zona Universitaria, 91090 Xalapa-Enríquez, Ver., México
+        val c11 = LatLng(19.51878101312714, -96.92122153297707)
+        val cc11= MarkerOptions()
+            .position(c11)
+            .title("Ruta 2 : Parada-11")
+        map.addMarker(cc11)
+
+        //Universitario Gonzalo Aguirre Beltrán 430, Zona Universitaria, 91090 Xalapa-Enríquez, Ver., México
+        val c12 = LatLng(19.519098971635835, -96.91810309368206)
+        val cc12= MarkerOptions()
+            .position(c12)
+            .title("Ruta 2 : Parada-12")
+        map.addMarker(cc12)
+
+        //Calz. Salvador Díaz Mirón 50, Lomas del Estadio, 91090 Xalapa-Enríquez, Ver., México
+        val c13 = LatLng(19.5207059851168, -96.91841076110235)
+        val cc13= MarkerOptions()
+            .position(c13)
+            .title("Ruta 2 : Parada-13")
+        map.addMarker(cc13)
+
+        //C. Salvador Díaz Mirón 31, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c14 = LatLng(19.52154522539265, -96.91779147015583)
+        val cc14= MarkerOptions()
+            .position(c14)
+            .title("Ruta 2 : Parada-14")
+        map.addMarker(cc14)
+
+        //Avenida Enrique C. Rébsamen 24 Zona Centro, Obreros Textiles, 91000 Xalapa-Enríquez, Ver.
+        val c15 = LatLng(19.521879177914283, -96.91654672623675)
+        val cc15= MarkerOptions()
+            .position(c15)
+            .title("Ruta 2 : Parada-15")
+        map.addMarker(cc15)
+
+        //Av. Enrique C. Rébsamen 234, Martires de Chicago, 91090 Xalapa-Enríquez, Ver.
+        val c16 = LatLng(19.51454178153587, -96.90990458212111)
+        val cc16= MarkerOptions()
+            .position(c16)
+            .title("Ruta 2 : Parada-16")
+        map.addMarker(cc16)
+
+        //Av. Enrique C. Rébsamen, Martires de Chicago, 91090 Xalapa-Enríquez, Ver.
+        val c17 = LatLng(19.512318791944402, -96.90628595211429)
+        val cc17= MarkerOptions()
+            .position(c17)
+            .title("Ruta 2 : Parada-17")
+        map.addMarker(cc17)
+
+        //Xalapa 2000, 91097 Xalapa-Enríquez, Ver.
+        val c18 = LatLng(19.512443103228783, -96.90122466401093)
+        val cc18= MarkerOptions()
+            .position(c18)
+            .title("Ruta 2 : Parada-18")
+        map.addMarker(cc18)
+
+        //Av. Enrique C. Rébsamen 645, Nuevo Xalapa, 91097 Xalapa-Enríquez, Ver.
+        val c19 = LatLng(19.508260773761386, -96.90166021846613)
+        val cc19= MarkerOptions()
+            .position(c19)
+            .title("Ruta 2 : Parada-19")
+        map.addMarker(cc19)
+
+        //Arco Vial Sur 728, Lomas Verdes, 91097 Xalapa-Enríquez, Ver.
+        val c20 = LatLng(19.505762224772223, -96.89010890336999)
+        val cc20= MarkerOptions()
+            .position(c20)
+            .title("Ruta 2 : Parada-20")
+        map.addMarker(cc20)
+
+        //Lomas Verdes, Agua Santa II, 91098 Xalapa-Enríquez, Ver.
+        val c21 = LatLng(19.506092002047616, -96.88839304912568)
+        val cc21= MarkerOptions()
+            .position(c21)
+            .title("Ruta 2 : Parada-21")
+        map.addMarker(cc21)
+
+        //Circuito Rafael Guízar y Valencia # 626 Planta Baja Locales 1,2 y 3, Reserva Territorial, 91223 Xalapa-Enríquez, Ver.
+        val c22 = LatLng(19.507304437081782, -96.88173511246045)
+        val cc22= MarkerOptions()
+            .position(c22)
+            .title("Ruta 2 : Parada-22")
+        map.addMarker(cc22)
+
+        //Circuito Rafael Guízar y Valencia # 626 Planta Baja Locales 1,2 y 3, Reserva Territorial, Xalapa-Enríquez, Ver.
+        val c23 = LatLng(19.507097033842722, -96.8797624398613)
+        val cc23= MarkerOptions()
+            .position(c23)
+            .title("Ruta 2 : Parada-23")
+        map.addMarker(cc23)
+
+        //Xallitic 2, Moctezuma, 91096 Xalapa-Enríquez, Ver.
+        val c24 = LatLng(19.502975127459674, -96.87818766950772)
+        val cc24= MarkerOptions()
+            .position(c24)
+            .title("Ruta 2 : Parada-24")
+        map.addMarker(cc24)
+
+        //Calz. del Tecnológico 8, Reserva Territorial, 91098 Pacho Viejo, Ver.
+        val c25 = LatLng(19.501057569527134, -96.8792256160391)
+        val cc25= MarkerOptions()
+            .position(c25)
+            .title("Ruta 2 : Parada-25")
+        map.addMarker(cc25)
+
+        //Calle Cto. Unidad 25 Pastoresa Pacho Viejo, Pastoresa, 91223 Pacho Viejo, Ver.
+        val c26 = LatLng(19.506163899849223, -96.87774689239974)
+        val cc26= MarkerOptions()
+            .position(c26)
+            .title("Ruta 2 : Parada-26")
+        map.addMarker(cc26)
+
+        //Av. principal hacia las Trancas #1 Enfrente de farmacia del ahorro Col, El Olmo, 91194 Xalapa-Enríquez, Ver.
+        val c27 = LatLng(19.50743620552431, -96.86943855062536)
+        val cc27= MarkerOptions()
+            .position(c27)
+            .title("Ruta 2 : Parada-27")
+        map.addMarker(cc27)
+
+        //Rafael Fuentes Boettinger 3, Rubi Animas, 91193 Xalapa-Enríquez, Ver.
+        val c28 = LatLng(19.51314695397489, -96.87522865163342)
+        val cc28= MarkerOptions()
+            .position(c28)
+            .title("Ruta 2 : Parada-28")
+        map.addMarker(cc28)
+
+        //Carretera México-Veracruz 560, Carr. Xalapa Veracruz, Pastoresa Av. Salvador Díaz Mirón 1010, Centro, Veracruz, Centro, 91193 Xalapa-Enríquez, Ver.
+        val c29 = LatLng(19.51550332466404, -96.879313107558)
+        val cc29= MarkerOptions()
+            .position(c29)
+            .title("Ruta 2 : Parada-29")
+        map.addMarker(cc29)
+
+        //91193, Carr. Xalapa Veracruz 225, Campo Nuevo, 91193 Xalapa-Enríquez, Ver.
+        val c30 = LatLng(19.520602236912644, -96.88551634159865)
+        val cc30= MarkerOptions()
+            .position(c30)
+            .title("Ruta 2 : Parada-30")
+        map.addMarker(cc30)
+
+        //Carretera Xalapa-Veracruz, Km 0+700, Col, Indeco Animas, 91190 Enríquez, Ver.
+        val c31 = LatLng(19.52294717243575, -96.89481483361834)
+        val cc31= MarkerOptions()
+            .position(c31)
+            .title("Ruta 2 : Parada-31")
+        map.addMarker(cc31)
+
+        //C. Lázaro Cárdenas 198, Encinal, 91180 Xalapa-Enríquez, Ver.
+        val c32 = LatLng(19.53198588827804, -96.9047102898112)
+        val cc32= MarkerOptions()
+            .position(c32)
+            .title("Ruta 2 : Parada-32")
+        map.addMarker(cc32)
+
+        //Pl. Crystal Local 23 D, Encinal, 91180 Xalapa-Enríquez, Ver.
+        val c33 = LatLng(19.533320047469324, -96.90693392271301)
+        val cc33= MarkerOptions()
+            .position(c33)
+            .title("Ruta 2 : Parada-33")
+        map.addMarker(cc33)
+
+        //C. Lázaro Cárdenas 402, Francisco Villa, 91180 Xalapa-Enríquez, Ver.
+        val c34 = LatLng(19.535435502086912, -96.9077532216284)
+        val cc34= MarkerOptions()
+            .position(c34)
+            .title("Ruta 2 : Parada-34")
+        map.addMarker(cc34)
+
+        //C. Lázaro Cárdenas 373, El Mirador, 91170 Xalapa-Enríquez, Ver.
+        val c35 = LatLng(19.53888003851993, -96.9077189243112)
+        val cc35= MarkerOptions()
+            .position(c35)
+            .title("Ruta 2 : Parada-35")
+        map.addMarker(cc35)
+
+        //Av Miguel Alemán 204A, Miguel Hidalgo, 91140 Xalapa-Enríquez, Ver.
+        val c36 = LatLng(19.55064025781004, -96.91239684099077)
+        val cc36= MarkerOptions()
+            .position(c36)
+            .title("Ruta 2 : Parada-36")
+        map.addMarker(cc36)
+
+        //C. Lázaro Cárdenas 690, Ferrocarrilera, 91120 Xalapa-Enríquez, Ver.
+        val c37 = LatLng(19.55442081818692, -96.91416897901088)
+        val cc37= MarkerOptions()
+            .position(c37)
+            .title("Ruta 2 : Parada-37")
+        map.addMarker(cc37)
+
+        //Lázaro Cádenas 796, Rafael Lucio, 91110 Xalapa-Enríquez, Ver.
+        val c38 = LatLng(19.55838315310607, -96.9176216929931)
+        val cc38= MarkerOptions()
+            .position(c38)
+            .title("Ruta 2 : Parada-38")
+        map.addMarker(cc38)
+
+        //C. Lázaro Cárdenas 862, Rafael Lucio, 91110 Xalapa-Enríquez, Ver.
+        val c39 = LatLng(19.559873695774744, -96.9217104156258)
+        val cc39= MarkerOptions()
+            .position(c39)
+            .title("Ruta 2 : Parada-39")
+        map.addMarker(cc39)
+
+        //Av. Adolfo Ruiz Cortines 939, U.H. del Bosque, 91010 Xalapa-Enríquez, Ver.
+        val c40 = LatLng(19.562572888879828, -96.92967584948698)
+        val cc40= MarkerOptions()
+            .position(c40)
+            .title("Ruta 2 : Parada-40")
+        map.addMarker(cc40)
+
+        //Av. Adolfo Ruiz Cortines 942, U.H. del Bosque, 91017 Xalapa-Enríquez, Ver.
+        val c41 = LatLng(19.562361380242617, -96.92949627712534)
+        val cc41= MarkerOptions()
+            .position(c41)
+            .title("Ruta 2 : Parada-41")
+        map.addMarker(cc41)
+
+        //Av. Xalapa 205, U.H. del Bosque, 91010 Xalapa-Enríquez, Ver.
+        val c42 = LatLng(19.55976289130537, -96.92881294479012)
+        val cc42= MarkerOptions()
+            .position(c42)
+            .title("Ruta 2 : Parada-42")
+        map.addMarker(cc42)
+
+        //Arcos del Panteón 389, Rafael Lucio, 91130 Xalapa-Enríquez, Ver.
+        val c43 = LatLng(19.55900144561089, -96.92885222625053)
+        val cc43= MarkerOptions()
+            .position(c43)
+            .title("Ruta 2 : Parada-43")
+        map.addMarker(cc43)
+
+        //Av. Xalapa s/n, Unidad Magisterial, 91110 Xalapa-Enríquez, Ver.
+        val c44 = LatLng(19.554059782921154, -96.92931023090672)
+        val cc44= MarkerOptions()
+            .position(c44)
+            .title("Ruta 2 : Parada-44")
+        map.addMarker(cc44)
+
+        //Av. Xalapa s/n, Unidad Magisterial, 91017 Xalapa-Enríquez, Ver.
+        val c45 = LatLng(19.55165216872238, -96.92977013948234)
+        val cc45= MarkerOptions()
+            .position(c45)
+            .title("Ruta 2 : Parada-45")
+        map.addMarker(cc45)
+
+        //Av. Xalapa 630, Obrero Campesina, 91020 Xalapa-Enríquez, Ver.
+        val c46 = LatLng(19.54845537004497, -96.92986779545839)
+        val cc46= MarkerOptions()
+            .position(c46)
+            .title("Ruta 2 : Parada-46")
+        map.addMarker(cc46)
+
+        //Av. Xalapa 201, Obrero Campesina, 91020 Xalapa-Enríquez, Ver.
+        val c47 = LatLng(19.543248788869555, -96.92756606074998)
+        val cc47= MarkerOptions()
+            .position(c47)
+            .title("Ruta 2 : Parada-47")
+        map.addMarker(cc47)
 
     }
 

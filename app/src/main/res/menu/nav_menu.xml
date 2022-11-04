@@ -3,14 +3,18 @@
 
     <item
         android:id="@+id/mapFragment"
-        android:title="Mapa" />
+        android:title="Mapa"
+        android:icon="@drawable/abc_vector_test"/>
     <item
-        android:id="@+id/pruebaFragment"
-        android:title="Costos de pasaje" />
+        android:id="@+id/costosFragment"
+        android:title="Costos de pasaje"
+        android:icon="@drawable/abc_vector_test"/>
     <item
-        android:id="@+id/ejemplo"
-        android:title="Favoritos" />
+        android:id="@+id/nav_item_three"
+        android:title="Favoritos"
+        android:icon="@drawable/abc_vector_test"/>
     <item
         android:id="@+id/cerrar"
-        android:title="Cerrar sesión" />
+        android:title="Cerrar sesión"
+        android:icon="@drawable/abc_vector_test"/>
 </menu>
