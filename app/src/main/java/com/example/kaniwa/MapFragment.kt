@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -1186,14 +1187,30 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     }
 
     private fun AMARILLO(){
-        createRoute("-96.875261,19.513131", "-96.928171,19.563536")
-        createRoute("-96.928171,19.563536","-96.929721,19.562556")
-        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051")
-        createRoute("-96.92892458917628,19.56218658134051","-96.927141,19.542509")
-        //createRoute("-96.929976,19.562508","-96.928938,19.562179")
-        //createRoute("","")
-        //createRoute("","")
-        //createRoute("","")
+        createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO)
+        createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO)
+        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO)
+        createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO)
+        createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO)
+        createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO)
+        createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO)
+        createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO)
+        createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO)
+        createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO)
+        createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO)
+        createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO)
+        createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO)
+        createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO)
+        createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO)
+        createRoute("-96.900389,19.508830","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+
+        //createRoute("","",R.color.AMARILLO)
+
         /*
         val polylineOptions = PolylineOptions()
             //.add(LatLng())
@@ -1215,26 +1232,26 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     }
 
     //------------------------------Funciones Retrofit para rutas-------------------------------------------\\
-    private fun createRoute(start:String, end:String){
+    private fun createRoute(start:String, end:String, color:Int){
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(ApiService::class.java)
                 .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
             if(call.isSuccessful){
                 Log.i("erick", "Si jalo")
-                drawRoute(call.body())
+                drawRoute(call.body(), color)
             }else{
                 Log.i("erick", "KO")
             }
         }
     }
 
-    private fun drawRoute(routeResponse: RouteResponse?) {
+    private fun drawRoute(routeResponse: RouteResponse?, color:Int) {
         val polylineOptions = PolylineOptions()
         routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
             polylineOptions.add(LatLng(it[1],it[0]))
         }
         runOnUiThread{
-            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), R.color.AMARILLO))
+            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), color))
             val poly = map.addPolyline(polylineOptions)
         }
     }
