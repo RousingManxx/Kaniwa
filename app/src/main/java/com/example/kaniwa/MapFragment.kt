@@ -2,6 +2,8 @@ package com.example.kaniwa
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -87,6 +90,38 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
                 map.clear()
             }
         }
+
+        /*binding.listaRutas.setOnClickListener{
+            val selectedItems = ArrayList<Int>() // Where we track the selected items
+            val builder = AlertDialog.Builder()
+            // Set the dialog title
+            builder.setTitle("Lista Rutas")
+                // Specify the list array, the items to be selected by default (null for none),
+                // and the listener through which to receive callbacks when items are selected
+                .setMultiChoiceItems(R.array.listaRutas, null,
+                    DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+                        if (isChecked) {
+                            // If the user checked the item, add it to the selected items
+                            selectedItems.add(which)
+                        } else if (selectedItems.contains(which)) {
+                            // Else, if the item is already in the array, remove it
+                            selectedItems.remove(which)
+                        }
+                    })
+                // Set the action buttons
+                .setPositiveButton(R.string.ok,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        // User clicked OK, so save the selectedItems results somewhere
+                        // or return them to the component that opened the dialog
+                        //...
+                    })
+                .setNegativeButton(R.string.cancel,
+                    DialogInterface.OnClickListener { dialog, id ->
+                        //...
+                    })
+
+            builder.create()
+        }*/
     }
 
     override fun onMapReady(googleMap: GoogleMap?){
@@ -1134,6 +1169,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.addMarker(cc47)
 
     }
+
+    
 
     private fun isLocationPermissionGranted() = getContext()?.let {
         ActivityCompat.checkSelfPermission(

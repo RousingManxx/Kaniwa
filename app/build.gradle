@@ -53,7 +53,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.core:core-splashscreen:1.0.0'
+
+    //boton flotante
     implementation 'com.google.android.material:material:1.6.1'
+
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
@@ -77,4 +80,5 @@ dependencies {
     implementation "com.google.android.material:material:material_design_version"
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
 }

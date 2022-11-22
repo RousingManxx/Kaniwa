@@ -17,4 +17,15 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="notification_channel_group_general" />
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+
+    <string-array name="listaRutas">
+        <item>Ruta 1: </item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>
