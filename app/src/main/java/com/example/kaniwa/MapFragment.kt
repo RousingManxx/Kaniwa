@@ -1186,29 +1186,34 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     }
 
     private fun AMARILLO(){
-        createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO)
-        createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO)
-        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO)
-        createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO)
-        createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO)
-        createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO)
-        createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO)
-        createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO)
-        createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO)
-        createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO)
-        createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO)
-        createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO)
-        createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO)
-        createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO)
-        createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO)
-        createRoute("-96.900389,19.508830","",R.color.AMARILLO)
-        createRoute("","",R.color.AMARILLO)
-        createRoute("","",R.color.AMARILLO)
-        createRoute("","",R.color.AMARILLO)
-        createRoute("","",R.color.AMARILLO)
-        createRoute("","",R.color.AMARILLO)
+        createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.900389,19.508830","-96.902025,19.508765",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.902025,19.508765","-96.901477,19.508223",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.901477,19.508223","-96.891360,19.505620",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.891360,19.505620","-96.890580,19.504534",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.890580,19.504534","-96.890537,19.504739",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.890537,19.504739","-96.890722,19.505743",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.890722,19.505743","-96.878139,19.503100",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.878139,19.503100","-96.878066,19.503253",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.878066,19.503253","-96.878340,19.506112",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.878340,19.506112","-96.868707,19.508221",R.color.AMARILLO, "Ruta: Amarillo")
+        createRoute("-96.868707,19.508221","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
 
-        //createRoute("","",R.color.AMARILLO)
+        //createRoute("","",R.color.AMARILLO, "")
 
         /*
         val polylineOptions = PolylineOptions()
@@ -1229,22 +1234,30 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         */
 
     }
+    //Ruta del SUX de 20 de noviembre
+    private fun SUX1(){
+        createRoute("-96.927010,19.542316","-96.909549,19.526640",R.color.SUX1, "Ruta: SUX 20 de Nov")
+
+        //createRoute("","",R.color.AMARILLO, "")
+
+    }
 
     //------------------------------Funciones Retrofit para rutas-------------------------------------------\\
-    private fun createRoute(start:String, end:String, color:Int){
+    private fun createRoute(start:String, end:String, color:Int, msg: String){
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(ApiService::class.java)
                 .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
             if(call.isSuccessful){
                 Log.i("erick", "Si jalo")
-                drawRoute(call.body(), color)
+                drawRoute(call.body(), color, msg)
             }else{
                 Log.i("erick", "KO")
+
             }
         }
     }
 
-    private fun drawRoute(routeResponse: RouteResponse?, color:Int) {
+    private fun drawRoute(routeResponse: RouteResponse?, color:Int, msg:String) {
         val polylineOptions = PolylineOptions()
         routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
             polylineOptions.add(LatLng(it[1],it[0]))
@@ -1252,6 +1265,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         runOnUiThread{
             polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), color))
             val poly = map.addPolyline(polylineOptions)
+            poly.isClickable = true
+            map.setOnPolylineClickListener { Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show() }
         }
     }
     fun Fragment?.runOnUiThread(action:()-> Unit){
