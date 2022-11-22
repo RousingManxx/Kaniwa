@@ -2,9 +2,7 @@ package com.example.kaniwa
 
 import android.Manifest
 import android.app.Activity
-import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -15,13 +13,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.kaniwa.databinding.ActivityLoginBinding
 import com.example.kaniwa.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,7 +32,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     private lateinit var map:GoogleMap
     private lateinit var mapView:MapView
     private var ban = false
-
+    var parada1 = Parada("Parada1",LatLng(19.541275, -96.927288),arrayOf("Ruta1","Ruta2"))
     //private var start:String = "-96.902440, 19.525388"
     //private var end:String = "-96.923477, 19.537108"
 
@@ -71,6 +67,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         mapView.onResume()
         mapView.getMapAsync(this);
         listenerBoton()
+        //prueba de clase parada
+        parada1.verRutas()
+        println(parada1.calcularDistancia(LatLng(20.070360, -97.064299)))
     }
 
     private fun listenerBoton(){
