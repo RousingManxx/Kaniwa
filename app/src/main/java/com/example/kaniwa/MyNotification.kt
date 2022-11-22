@@ -10,9 +10,6 @@ import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 
-/**
- * Created by SAUL on 09/11/2020.
- */
 class MyNotification(private val context: Context, private val channelId: String) {
     private val notificationBuilder: NotificationCompat.Builder = NotificationCompat.Builder(context, channelId)
     private val notificationManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
