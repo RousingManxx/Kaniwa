@@ -4,8 +4,10 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +23,11 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener{
 
@@ -29,6 +36,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     private lateinit var map:GoogleMap
     private lateinit var mapView:MapView
     private var ban = false
+
+    //private var start:String = "-96.902440, 19.525388"
+    //private var end:String = "-96.923477, 19.537108"
 
     companion object{
         const val REQUEST_CODE_LOCATION = 0
@@ -65,29 +75,31 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     private fun listenerBoton(){
         binding.fab.setOnClickListener{
-            Toast.makeText(getContext(), "Boton FAB", Toast.LENGTH_SHORT).show()
             if(ban == false){
+                Toast.makeText(getContext(), "Rutas", Toast.LENGTH_SHORT).show()
                 ban = true
-                ATAZ(ban)
+                ATAZ()
+                AMARILLO()
+                //createRoute("-96.902440, 19.525388", "-96.923477, 19.537108")
 
             }else if(ban == true){
+                Toast.makeText(getContext(), "Limpiar mapa", Toast.LENGTH_SHORT).show()
                 ban = false
                 map.clear()
             }
         }
     }
 
-    override fun onMapReady(googleMap: GoogleMap?) {
+    override fun onMapReady(googleMap: GoogleMap?){
         if (googleMap != null) {
             map = googleMap
             zoom()
-            ATAZ(ban)
             paradasConocidas()
             ruta1()
+            //createRoute()
             map.setOnMyLocationButtonClickListener(this) //Mensaje cuando se toque el boton de ubicación actual
             map.setOnMyLocationClickListener(this) //Corrdenadas de cuando se de clcick en la ubicación actual (NO el boton)
             enableLocation()
-
         }
     }
 
@@ -103,7 +115,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.addMarker(ubicacion)
     }
 
-    private fun ATAZ(ban: Boolean): Boolean {
+    private fun ATAZ(){
         val polylineOptions = PolylineOptions()
             .add(LatLng(19.513159, -96.875301)).add(LatLng(19.514231, -96.876293)).add(LatLng(19.514867, -96.877655))
             .add(LatLng(19.515570, -96.879629)).add(LatLng(19.515919, -96.879994)).add(LatLng(19.517322, -96.880932))
@@ -155,14 +167,14 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         val pattern = listOf(
             Dot(), Gap(10f), Dash(50f), Gap(10f)
         )
-        polyline.isVisible = ban
+
         polyline.pattern = pattern
         polyline.startCap = RoundCap()
         polyline.endCap = RoundCap()
         //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
         polyline.isClickable = true
         map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
-        return ban
+
     }
 
     private fun paradasConocidas(){
@@ -1173,4 +1185,132 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     override fun onMyLocationClick(p0: Location) {
         Toast.makeText(getContext(), "Estas en: ${p0.latitude}, ${p0.longitude}", Toast.LENGTH_SHORT).show()
     }
+
+    private fun AMARILLO(){
+        createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO)
+        createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO)
+        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO)
+        createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO)
+        createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO)
+        createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO)
+        createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO)
+        createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO)
+        createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO)
+        createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO)
+        createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO)
+        createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO)
+        createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO)
+        createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO)
+        createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO)
+        createRoute("-96.900389,19.508830","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+        createRoute("","",R.color.AMARILLO)
+
+        //createRoute("","",R.color.AMARILLO)
+
+        /*
+        val polylineOptions = PolylineOptions()
+            //.add(LatLng())
+            .width(15f)
+            .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
+        val polyline = map.addPolyline(polylineOptions)
+        val pattern = listOf(
+            Dot(), Gap(10f), Dash(50f), Gap(10f)
+        )
+
+        polyline.pattern = pattern
+        polyline.startCap = RoundCap()
+        polyline.endCap = RoundCap()
+        //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
+        polyline.isClickable = true
+        map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
+        */
+
+    }
+
+    //------------------------------Funciones Retrofit para rutas-------------------------------------------\\
+    private fun createRoute(start:String, end:String, color:Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(ApiService::class.java)
+                .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
+            if(call.isSuccessful){
+                Log.i("erick", "Si jalo")
+                drawRoute(call.body(), color)
+            }else{
+                Log.i("erick", "KO")
+            }
+        }
+    }
+
+    private fun drawRoute(routeResponse: RouteResponse?, color:Int) {
+        val polylineOptions = PolylineOptions()
+        routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
+            polylineOptions.add(LatLng(it[1],it[0]))
+        }
+        runOnUiThread{
+            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), color))
+            val poly = map.addPolyline(polylineOptions)
+        }
+    }
+    fun Fragment?.runOnUiThread(action:()-> Unit){
+        this?:return
+        if(!isAdded) return
+        activity?.runOnUiThread(action)
+    }
+
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://api.openrouteservice.org/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 }
+
+/*
+private fun AMARILLO(){
+        val polylineOptions = PolylineOptions()
+            //.add(LatLng())
+            .width(15f)
+            .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
+        val polyline = map.addPolyline(polylineOptions)
+        val pattern = listOf(
+            Dot(), Gap(10f), Dash(50f), Gap(10f)
+        )
+
+        polyline.pattern = pattern
+        polyline.startCap = RoundCap()
+        polyline.endCap = RoundCap()
+        //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
+        polyline.isClickable = true
+        map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
+
+    }
+ */
+
+/*
+    private fun drawRoute(routeResponse: RouteResponse?){
+        val polylineOptions = PolylineOptions()
+        routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
+            polylineOptions.add(LatLng(it[1],it[0]))
+        }
+        runOnUiThread{
+            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), R.color.AMARILLO))
+            val poly = map.addPolyline(polylineOptions)
+        }
+    }
+    fun Fragment?.runOnUiThread(action:()-> Unit){
+        this?:return
+        if(!isAdded) return
+        activity?.runOnUiThread(action)
+    }
+
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://api.openrouteservice.org/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+ */
