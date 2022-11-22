@@ -180,4 +180,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         editor.apply()
         this.finish()
     }
+
 }
