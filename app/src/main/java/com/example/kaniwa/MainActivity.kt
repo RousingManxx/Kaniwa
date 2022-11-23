@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
 
-    var broadcastReceiver = null
+    var broadcastReceiver: InternetReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,19 +91,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView = findViewById(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        /*//Metodo para ver si hay conexion a internet
-        broadcastReceiver =internetReceiver()
-        internetStatus()*/
+        //Metodo para ver si hay conexion a internet
+        broadcastReceiver = InternetReceiver()
+        internetStatus()
     }
 
-    /*fun internetStatus(){
+    fun internetStatus(){
         registerReceiver(broadcastReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION) )
     }
 
     override fun onPause() {
         super.onPause()
         unregisterReceiver(broadcastReceiver)
-    }*/
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
