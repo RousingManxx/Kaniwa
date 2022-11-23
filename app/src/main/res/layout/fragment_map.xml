@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        Boton flotante de color azul lado derecho-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -25,6 +26,7 @@
             android:contentDescription="PruebaFAB"
             app:srcCompat="@drawable/ic_uv"/>
 
+<!--        Boton flotante para lista de rutas lado izquierdo-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/listaRutas"
             android:layout_width="wrap_content"

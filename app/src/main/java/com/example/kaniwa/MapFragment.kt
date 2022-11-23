@@ -75,7 +75,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         println(parada1.calcularDistancia(LatLng(20.070360, -97.064299)))
     }
 
+//    Listener de los botones flotantes del mapa
     private fun listenerBoton(){
+//        Acciones del boton de la derecha del mapa
         binding.fab.setOnClickListener{
             if(ban == false){
                 Toast.makeText(getContext(), "Rutas", Toast.LENGTH_SHORT).show()
@@ -91,9 +93,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
             }
         }
 
-        /*binding.listaRutas.setOnClickListener{
+//        Acciones del boton de la lista de rutas con checkbox
+        binding.listaRutas.setOnClickListener{
             val selectedItems = ArrayList<Int>() // Where we track the selected items
-            val builder = AlertDialog.Builder()
+            val builder = AlertDialog.Builder(getContext())
             // Set the dialog title
             builder.setTitle("Lista Rutas")
                 // Specify the list array, the items to be selected by default (null for none),
@@ -121,9 +124,10 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
                     })
 
             builder.create()
-        }*/
+        }
     }
 
+//    Metodo que inicia el fragment del mapa de la aplicacion
     override fun onMapReady(googleMap: GoogleMap?){
         if (googleMap != null) {
             map = googleMap
@@ -137,11 +141,13 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         }
     }
 
+//    Metodo que hace zoom a unas coordenadas especificas (ESCUELA FEI)
     private fun zoom(){
         val coordenadas = LatLng(19.527409, -96.921380)
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 13f), 2000,null)
     }
 
+//    Metodo que hace zoom a un lugar especifico (Algun lugar)
     public fun setZoom(latLng: LatLng){
         val coordenadas = latLng
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordenadas, 17f), 2000,null)
@@ -149,6 +155,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.addMarker(ubicacion)
     }
 
+//    Polilineas a mano de una ruta
     private fun ATAZ(){
         val polylineOptions = PolylineOptions()
             .add(LatLng(19.513159, -96.875301)).add(LatLng(19.514231, -96.876293)).add(LatLng(19.514867, -96.877655))
@@ -211,6 +218,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     }
 
+//    Coordenadas de algunas paradas
     private fun paradasConocidas(){
         //Parada Fei
         val c0 = LatLng(19.542635, -96.927233)
@@ -289,6 +297,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     }
 
+//    Coordenadas de paradas de la ruta 1 de acuerdo a mapaton.org
     private fun ruta1(){
         //Antojitos Vero
         /*val c0 = LatLng(19.542635, -96.927233)
@@ -838,6 +847,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.addMarker(cc83)
     }
 
+//    Coordenadas de paradas de la ruta 2 que pasa cerca de la fei
     private fun ruta2(){
         //Av. Xalapa 73, Obrero Campesina, 91020 Xalapa-Enríquez, Ver., México
         val c01 = LatLng(19.54290379391993, -96.92740439152757)
@@ -1170,198 +1180,570 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     }
 
-    
+//    Coordenadas de paradas de la ruta 3 que pasa cerca de la fei
+    private fun ruta3(){
+        //Av. Xalapa 226, Col del Maestro, 91030 Xalapa-Enríquez, Ver.
+        val c01 = LatLng(19.541775999298387, -96.92675775577904)
+        val cc01= MarkerOptions()
+            .position(c01)
+            .title("Ruta 3 : Parada-01")
+        map.addMarker(cc01)
 
-    private fun isLocationPermissionGranted() = getContext()?.let {
-        ActivityCompat.checkSelfPermission(
-            it, Manifest.permission.ACCESS_FINE_LOCATION)
-    } == PackageManager.PERMISSION_GRANTED
+        //Av. 20 de Noviembre, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c02 = LatLng(19.536563886710823, -96.92065711069382)
+        val cc02= MarkerOptions()
+            .position(c02)
+            .title("Ruta 3 : Parada-02")
+        map.addMarker(cc02)
 
-    private fun enableLocation(){
-        if(!::map.isInitialized) return
-        if(isLocationPermissionGranted()){
-            //SI
-            map.isMyLocationEnabled = true
+        //Calle Revolución 64, Zona Centro, Rafael Lucio, 91110 Xalapa-Enríquez, Ver.
+        val c03 = LatLng(19.53548983682819, -96.91756488470762)
+        val cc03= MarkerOptions()
+            .position(c03)
+            .title("Ruta 3 : Parada-03")
+        map.addMarker(cc03)
 
-        }else{
-            //NO
-            requestLocationPermission()
-        }
+        //Av. 20 de Noviembre, Justo Sierra esquina, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c04 = LatLng(19.531794141544797, -96.91443742900262)
+        val cc04= MarkerOptions()
+            .position(c04)
+            .title("Ruta 3 : Parada-04")
+        map.addMarker(cc04)
+
+        //Av. 20 de Noviembre 384, Los Ángeles, 91060 Xalapa-Enríquez, Ver.
+        val c05 = LatLng(19.527583912062266, -96.91103260201788)
+        val cc05= MarkerOptions()
+            .position(c05)
+            .title("Ruta 3 : Parada-05")
+        map.addMarker(cc05)
+
+        //Av. 20 de Noviembre 444, Los Ángeles, 91060 Xalapa-Enríquez, Ver.
+        val c06 = LatLng(19.52596580742933, -96.9086539733961)
+        val cc06= MarkerOptions()
+            .position(c06)
+            .title("Ruta 3 : Parada-06")
+        map.addMarker(cc06)
+
+        //INFONAVIT Pomona, 91040 Xalapa-Enríquez, Ver.
+        val c07 = LatLng(19.52561789968329, -96.90718528194215)
+        val cc07= MarkerOptions()
+            .position(c07)
+            .title("Ruta 3 : Parada-07")
+        map.addMarker(cc07)
+
+        //Carr. Veracruz-Xalapa 357, Jardines de las Animas, 91190 Xalapa-Enríquez, Ver.
+        val c08 = LatLng(19.520374192955483, -96.88554897306102)
+        val cc08= MarkerOptions()
+            .position(c08)
+            .title("Ruta 3 : Parada-08")
+        map.addMarker(cc08)
+
+        //Carr. Veracruz-Xalapa 357, Jardines de las Animas, 91190 Xalapa-Enríquez, Ver.
+        val c09 = LatLng(19.520437255364286, -96.88487033355653)
+        val cc09= MarkerOptions()
+            .position(c09)
+            .title("Ruta 3 : Parada-09")
+        map.addMarker(cc09)
+
+        //Carr. Veracruz-Xalapa 412, Rubi Animas, 91194 Xalapa-Enríquez, Ver.
+        val c10 = LatLng(19.515767586946392, -96.87979722082032)
+        val cc10= MarkerOptions()
+            .position(c09)
+            .title("Ruta 3 : Parada-10")
+        map.addMarker(cc10)
     }
 
-    private fun requestLocationPermission(){
-        if(ActivityCompat.shouldShowRequestPermissionRationale(getContext() as Activity, Manifest.permission.ACCESS_FINE_LOCATION)){
-            Toast.makeText(getContext(), "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
-        }else{
-            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), Maps.REQUEST_CODE_LOCATION)
-        }
-    }
+//    Coordenadas de paradas de la ruta 4 que pasa cerca de la fei
+    private fun ruta4(){
+        //Av. Xalapa s/n, Obrero Campesina, 91020 Xalapa-Enríquez, Ver.
+        val c01 = LatLng(19.541790245494738, -96.92673453783364)
+        val cc01= MarkerOptions()
+            .position(c01)
+            .title("Ruta 4 : Parada-01")
+        map.addMarker(cc01)
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when(requestCode){
-            Maps.REQUEST_CODE_LOCATION -> if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                map.isMyLocationEnabled = true
-            }else{
-                Toast.makeText(getContext(), "Para utilizar la localización, ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
-            }
-            else->{}
-        }
-    }
+        //Col del Maestro, 91030 Xalapa-Enríquez, Ver.
+        val c02 = LatLng(19.539856768302176, -96.92337628973101)
+        val cc02= MarkerOptions()
+            .position(c02)
+            .title("Ruta 4 : Parada-02")
+        map.addMarker(cc02)
 
-    override fun onMyLocationButtonClick(): Boolean {
-        Toast.makeText(getContext(), "Dirigiendo a ubicación actual", Toast.LENGTH_SHORT).show()
-        return false
-    }
+        //Mercado la Rotonda, C. Revolución 11, Col del Maestro, 91000 Xalapa-Enríquez, Ver.
+        val c03 = LatLng(19.540370268564185, -96.92250892767223)
+        val cc03= MarkerOptions()
+            .position(c03)
+            .title("Ruta 4 : Parada-03")
+        map.addMarker(cc03)
 
-    override fun onMyLocationClick(p0: Location) {
-        Toast.makeText(getContext(), "Estas en: ${p0.latitude}, ${p0.longitude}", Toast.LENGTH_SHORT).show()
-    }
+        //C. Revolución 330, Col del Maestro, 91030 Xalapa-Enríquez, Ver.
+        val c04 = LatLng(19.53962621663285, -96.92309272905796)
+        val cc04= MarkerOptions()
+            .position(c04)
+            .title("Ruta 4 : Parada-04")
+        map.addMarker(cc04)
 
-    private fun AMARILLO(){
-        createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.900389,19.508830","-96.902025,19.508765",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.902025,19.508765","-96.901477,19.508223",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.901477,19.508223","-96.891360,19.505620",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.891360,19.505620","-96.890580,19.504534",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.890580,19.504534","-96.890537,19.504739",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.890537,19.504739","-96.890722,19.505743",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.890722,19.505743","-96.878139,19.503100",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.878139,19.503100","-96.878066,19.503253",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.878066,19.503253","-96.878340,19.506112",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.878340,19.506112","-96.868707,19.508221",R.color.AMARILLO, "Ruta: Amarillo")
-        createRoute("-96.868707,19.508221","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
+        //Av. 20 de Noviembre Oriente 75, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c05 = LatLng(19.5366742206323, -96.9207634916421)
+        val cc05= MarkerOptions()
+            .position(c05)
+            .title("Ruta 4 : Parada-05")
+        map.addMarker(cc05)
 
-        //createRoute("","",R.color.AMARILLO, "")
+        //Av. 20 de Noviembre Ote 156-int 3, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c06 = LatLng(19.53584107274034, -96.91827260563167)
+        val cc06= MarkerOptions()
+            .position(c06)
+            .title("Ruta 4 : Parada-06")
+        map.addMarker(cc06)
 
-        /*
-        val polylineOptions = PolylineOptions()
-            //.add(LatLng())
-            .width(15f)
-            .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
-        val polyline = map.addPolyline(polylineOptions)
-        val pattern = listOf(
-            Dot(), Gap(10f), Dash(50f), Gap(10f)
-        )
+        //Av. 20 de Noviembre 256, Zona Centro, Centro, 91000 Xalapa-Enríquez, Ver.
+        val c07 = LatLng(19.531567581970524, -96.91432641796408)
+        val cc07= MarkerOptions()
+            .position(c07)
+            .title("Ruta 4 : Parada-07")
+        map.addMarker(cc07)
 
-        polyline.pattern = pattern
-        polyline.startCap = RoundCap()
-        polyline.endCap = RoundCap()
-        //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
-        polyline.isClickable = true
-        map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
-        */
+        //Av. 20 de Noviembre Oriente 400, Los Ángeles, 91000 Xalapa-Enríquez, Ver.
+        val c08 = LatLng(19.526953398846892, -96.91005883862245)
+        val cc08= MarkerOptions()
+            .position(c08)
+            .title("Ruta 4 : Parada-08")
+        map.addMarker(cc08)
 
-    }
-    //Ruta del SUX de 20 de noviembre
-    private fun SUX1(){
-        createRoute("-96.927010,19.542316","-96.909549,19.526640",R.color.SUX1, "Ruta: SUX 20 de Nov")
+        //Av. 20 de Noviembre 583, Col. Badillo, 91190 Xalapa-Enríquez, Ver.
+        val c09 = LatLng(19.525403419149207, -96.90277525048245)
+        val cc09= MarkerOptions()
+            .position(c09)
+            .title("Ruta 4 : Parada-09")
+        map.addMarker(cc09)
 
-        //createRoute("","",R.color.AMARILLO, "")
+        //Av. 20 de Noviembre, Alvaro Obregon, 91060 Xalapa-Enríquez, Ver.
+        val c10 = LatLng(19.525655832035156, -96.89852370056381)
+        val cc10= MarkerOptions()
+            .position(c10)
+            .title("Ruta 4 : Parada-10")
+        map.addMarker(cc10)
+
+        //Av. Lázaro Cárdenas #4107 Col. Sipeh Ánimas Alvaro Obregon, 91190 Xalapa-Enríquez, Ver.
+        val c11 = LatLng(19.524803936961746, -96.89675780089756)
+        val cc11= MarkerOptions()
+            .position(c11)
+            .title("Ruta 4 : Parada-11")
+        map.addMarker(cc11)
 
     }
 
-    //------------------------------Funciones Retrofit para rutas-------------------------------------------\\
-    private fun createRoute(start:String, end:String, color:Int, msg: String){
-        CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(ApiService::class.java)
-                .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
-            if(call.isSuccessful){
-                Log.i("erick", "Si jalo")
-                drawRoute(call.body(), color, msg)
-            }else{
-                Log.i("erick", "KO")
+//    Ruta 5 en construccion porque se tomaron otras prioridades
+    /*private fun ruta5(){
+    //Culturas Veracruzanas 120, Reserva Territorial, 91096 Xalapa-Enríquez
+    val c01 = LatLng(19.508349182109, -96.87418855761308)
+    val cc01= MarkerOptions()
+        .position(c01)
+        .title("Ruta 5 : Parada-01")
+    map.addMarker(cc01)
 
-            }
-        }
-    }
+    //Plaza Patio, Arco Sur 128, Lomas Verdes, 91098 Xalapa-Enríquez, Ver.
+    val c02 = LatLng(19.50768644226826, -96.88089754773428)
+    val cc02= MarkerOptions()
+        .position(c02)
+        .title("Ruta 5 : Parada-02")
+    map.addMarker(cc02)
 
-    private fun drawRoute(routeResponse: RouteResponse?, color:Int, msg:String) {
-        val polylineOptions = PolylineOptions()
-        routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
-            polylineOptions.add(LatLng(it[1],it[0]))
-        }
-        runOnUiThread{
-            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), color))
-            val poly = map.addPolyline(polylineOptions)
-            poly.isClickable = true
-            map.setOnPolylineClickListener { Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show() }
-        }
-    }
-    fun Fragment?.runOnUiThread(action:()-> Unit){
-        this?:return
-        if(!isAdded) return
-        activity?.runOnUiThread(action)
-    }
+    //Av. Arco vial Sur No. 109, 91096 Xalapa-Enríquez, Ver.
+    val c03 = LatLng(19.506810075725408, -96.88608300444723)
+    val cc03= MarkerOptions()
+        .position(c03)
+        .title("Ruta 5 : Parada-03")
+    map.addMarker(cc03)
 
-    private fun getRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://api.openrouteservice.org/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    //
+    val c04 = LatLng()
+    val cc04= MarkerOptions()
+        .position(c04)
+        .title("Ruta 5 : Parada-04")
+    map.addMarker(cc04)
+
+    //
+    val c05 = LatLng()
+    val cc05= MarkerOptions()
+        .position(c05)
+        .title("Ruta 5 : Parada-05")
+    map.addMarker(cc05)
+
+    //
+    val c06 = LatLng()
+    val cc06= MarkerOptions()
+        .position(c06)
+        .title("Ruta 5 : Parada-06")
+    map.addMarker(cc06)
+
+    //
+    val c07 = LatLng()
+    val cc07= MarkerOptions()
+        .position(c07)
+        .title("Ruta 5 : Parada-07")
+    map.addMarker(cc07)
+
+    //
+    val c08 = LatLng()
+    val cc08= MarkerOptions()
+        .position(c08)
+        .title("Ruta 5 : Parada-08")
+    map.addMarker(cc08)
+
+    //
+    val c09 = LatLng()
+    val cc09= MarkerOptions()
+        .position(c09)
+        .title("Ruta 5 : Parada-09")
+    map.addMarker(cc09)
+
+    //
+    val c10 = LatLng()
+    val cc10= MarkerOptions()
+        .position(c10)
+        .title("Ruta 5 : Parada-10")
+    map.addMarker(cc10)
+
+    //
+    val c11 = LatLng()
+    val cc11= MarkerOptions()
+        .position(c11)
+        .title("Ruta 5 : Parada-11")
+    map.addMarker(cc11)
+
+    //
+    val c12 = LatLng()
+    val cc12= MarkerOptions()
+        .position(c12)
+        .title("Ruta 5 : Parada-12")
+    map.addMarker(cc12)
+
+    //
+    val c13 = LatLng()
+    val cc13= MarkerOptions()
+        .position(c13)
+        .title("Ruta 5 : Parada-13")
+    map.addMarker(cc13)
+
+    //
+    val c14 = LatLng()
+    val cc14= MarkerOptions()
+        .position(c14)
+        .title("Ruta 5 : Parada-14")
+    map.addMarker(cc14)
+
+    //
+    val c15 = LatLng()
+    val cc15= MarkerOptions()
+        .position(c15)
+        .title("Ruta 5 : Parada-15")
+    map.addMarker(cc15)
+
+    //
+    val c16 = LatLng()
+    val cc16= MarkerOptions()
+        .position(c16)
+        .title("Ruta 5 : Parada-16")
+    map.addMarker(cc16)
+
+    //
+    val c17 = LatLng()
+    val cc17= MarkerOptions()
+        .position(c17)
+        .title("Ruta 5 : Parada-17")
+    map.addMarker(cc17)
+
+    //
+    val c18 = LatLng()
+    val cc18= MarkerOptions()
+        .position(c18)
+        .title("Ruta 5 : Parada-18")
+    map.addMarker(cc18)
+
+    //
+    val c19 = LatLng()
+    val cc19= MarkerOptions()
+        .position(c19)
+        .title("Ruta 5 : Parada-19")
+    map.addMarker(cc19)
+
+    //
+    val c20 = LatLng()
+    val cc20= MarkerOptions()
+        .position(c20)
+        .title("Ruta 5 : Parada-20")
+    map.addMarker(cc20)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+
+    //
+    val c2 = LatLng()
+    val cc2= MarkerOptions()
+        .position(c2)
+        .title("Ruta 5 : Parada-2")
+    map.addMarker(cc2)
+}*/
+
+//    Metodo que permite ver si se tienen los permisos de locaclizacion
+private fun isLocationPermissionGranted() = getContext()?.let {
+    ActivityCompat.checkSelfPermission(
+        it, Manifest.permission.ACCESS_FINE_LOCATION)
+} == PackageManager.PERMISSION_GRANTED
+
+//    Metodo que permite ver la ubicacion en tiempo real
+private fun enableLocation(){
+    if(!::map.isInitialized) return
+    if(isLocationPermissionGranted()){
+        //SI
+        map.isMyLocationEnabled = true
+
+    }else{
+        //NO
+        requestLocationPermission()
     }
 }
 
+//    Metodo que solicita acceso a la localizacion
+private fun requestLocationPermission(){
+    if(ActivityCompat.shouldShowRequestPermissionRationale(getContext() as Activity, Manifest.permission.ACCESS_FINE_LOCATION)){
+        Toast.makeText(getContext(), "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
+    }else{
+        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), Maps.REQUEST_CODE_LOCATION)
+    }
+}
+
+//    ??
+override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray
+) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    when(requestCode){
+        Maps.REQUEST_CODE_LOCATION -> if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+            map.isMyLocationEnabled = true
+        }else{
+            Toast.makeText(getContext(), "Para utilizar la localización, ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
+        }
+        else->{}
+    }
+}
+
+//    Accion de darle al boton de mi localizacion
+override fun onMyLocationButtonClick(): Boolean {
+    Toast.makeText(getContext(), "Dirigiendo a ubicación actual", Toast.LENGTH_SHORT).show()
+    return false
+}
+
+//    Metodo que dice las coordenadas de la ubicacion actual
+override fun onMyLocationClick(p0: Location) {
+    Toast.makeText(getContext(), "Estas en: ${p0.latitude}, ${p0.longitude}", Toast.LENGTH_SHORT).show()
+}
+
+//    Ruta creada con api creadora de rutas
+private fun AMARILLO(){
+    createRoute("-96.875261,19.513131", "-96.928171,19.563536", R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.928171,19.563536","-96.929721,19.562556", R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.929721,19.562556","-96.92892458917628,19.56218658134051", R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.92892458917628,19.56218658134051","-96.929364,19.547755", R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.929364,19.547755","-96.926199,19.540880", R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.926199,19.540880","-96.934203,19.525623",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.934203,19.525623","-96.932042,19.524095",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.932042,19.524095","-96.926272, 19.521492",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.926272, 19.521492","-96.925413,19.523156",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.925413,19.523156","-96.919231 ,19.518609",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.919231 ,19.518609","-96.917973,19.519238",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.917973,19.519238","-96.916871,19.522509",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.916871,19.522509","-96.905654,19.512380",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.905654,19.512380","-96.902502,19.512607",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.902502,19.512607","-96.900389,19.508830",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.900389,19.508830","-96.902025,19.508765",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.902025,19.508765","-96.901477,19.508223",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.901477,19.508223","-96.891360,19.505620",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.891360,19.505620","-96.890580,19.504534",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.890580,19.504534","-96.890537,19.504739",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.890537,19.504739","-96.890722,19.505743",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.890722,19.505743","-96.878139,19.503100",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.878139,19.503100","-96.878066,19.503253",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.878066,19.503253","-96.878340,19.506112",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.878340,19.506112","-96.868707,19.508221",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.868707,19.508221","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
+
+    //createRoute("","",R.color.AMARILLO, "")
+
+    /*
+    val polylineOptions = PolylineOptions()
+        //.add(LatLng())
+        .width(15f)
+        .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
+    val polyline = map.addPolyline(polylineOptions)
+    val pattern = listOf(
+        Dot(), Gap(10f), Dash(50f), Gap(10f)
+    )
+
+    polyline.pattern = pattern
+    polyline.startCap = RoundCap()
+    polyline.endCap = RoundCap()
+    //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
+    polyline.isClickable = true
+    map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
+    */
+
+}
+
+//Ruta del SUX de 20 de noviembre
+//    Ruta creada con api creadora de rutas
+private fun SUX1(){
+    createRoute("-96.927010,19.542316","-96.909549,19.526640",R.color.SUX1, "Ruta: SUX 20 de Nov")
+
+    //createRoute("","",R.color.AMARILLO, "")
+
+}
+
+//Funcion retrofit (api creadora de rutas)
+private fun createRoute(start:String, end:String, color:Int, msg: String){
+    CoroutineScope(Dispatchers.IO).launch {
+        val call = getRetrofit().create(ApiService::class.java)
+            .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
+        if(call.isSuccessful){
+            Log.i("erick", "Si jalo")
+            drawRoute(call.body(), color, msg)
+        }else{
+            Log.i("erick", "KO")
+
+        }
+    }
+}
+
+//    Parte de retrofit
+private fun drawRoute(routeResponse: RouteResponse?, color:Int, msg:String) {
+    val polylineOptions = PolylineOptions()
+    routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
+        polylineOptions.add(LatLng(it[1],it[0]))
+    }
+    runOnUiThread{
+        polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), color))
+        val poly = map.addPolyline(polylineOptions)
+        poly.isClickable = true
+        map.setOnPolylineClickListener { Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show() }
+    }
+}
+
+//    Parte de retrofit
+fun Fragment?.runOnUiThread(action:()-> Unit){
+    this?:return
+    if(!isAdded) return
+    activity?.runOnUiThread(action)
+}
+
+//    Parte de retrofit
+private fun getRetrofit(): Retrofit {
+    return Retrofit.Builder()
+        .baseUrl("https://api.openrouteservice.org/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
+}
+
+//Ruta manual de ruta amarillo
 /*
 private fun AMARILLO(){
-        val polylineOptions = PolylineOptions()
-            //.add(LatLng())
-            .width(15f)
-            .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
-        val polyline = map.addPolyline(polylineOptions)
-        val pattern = listOf(
-            Dot(), Gap(10f), Dash(50f), Gap(10f)
-        )
+    val polylineOptions = PolylineOptions()
+        //.add(LatLng())
+        .width(15f)
+        .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
+    val polyline = map.addPolyline(polylineOptions)
+    val pattern = listOf(
+        Dot(), Gap(10f), Dash(50f), Gap(10f)
+    )
 
-        polyline.pattern = pattern
-        polyline.startCap = RoundCap()
-        polyline.endCap = RoundCap()
-        //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
-        polyline.isClickable = true
-        map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
+    polyline.pattern = pattern
+    polyline.startCap = RoundCap()
+    polyline.endCap = RoundCap()
+    //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
+    polyline.isClickable = true
+    map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
 
-    }
- */
+}
+*/
 
 /*
-    private fun drawRoute(routeResponse: RouteResponse?){
-        val polylineOptions = PolylineOptions()
-        routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
-            polylineOptions.add(LatLng(it[1],it[0]))
-        }
-        runOnUiThread{
-            polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), R.color.AMARILLO))
-            val poly = map.addPolyline(polylineOptions)
-        }
+private fun drawRoute(routeResponse: RouteResponse?){
+    val polylineOptions = PolylineOptions()
+    routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
+        polylineOptions.add(LatLng(it[1],it[0]))
     }
-    fun Fragment?.runOnUiThread(action:()-> Unit){
-        this?:return
-        if(!isAdded) return
-        activity?.runOnUiThread(action)
+    runOnUiThread{
+        polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), R.color.AMARILLO))
+        val poly = map.addPolyline(polylineOptions)
     }
+}
+fun Fragment?.runOnUiThread(action:()-> Unit){
+    this?:return
+    if(!isAdded) return
+    activity?.runOnUiThread(action)
+}
 
-    private fun getRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://api.openrouteservice.org/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
- */
+private fun getRetrofit(): Retrofit {
+    return Retrofit.Builder()
+        .baseUrl("https://api.openrouteservice.org/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
+*/

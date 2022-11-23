@@ -5,7 +5,9 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.res.Configuration
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -51,6 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
 
+    var broadcastReceiver = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -86,7 +90,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setDisplayShowTitleEnabled(false)
         navigationView = findViewById(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+        /*//Metodo para ver si hay conexion a internet
+        broadcastReceiver =internetReceiver()
+        internetStatus()*/
     }
+
+    /*fun internetStatus(){
+        registerReceiver(broadcastReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION) )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(broadcastReceiver)
+    }*/
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

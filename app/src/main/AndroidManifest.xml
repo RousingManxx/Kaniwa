@@ -2,10 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
+
+<!--    Metodo para obtener acceso a notificaciones push-->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
+<!-- Permiso para obtener informacion del internet-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+<!--   Metodo para acceder a la localizacion-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+<!--    Metodo para obtener acceso a internet-->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
