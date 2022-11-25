@@ -75,16 +75,16 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         println(parada1.calcularDistancia(LatLng(20.070360, -97.064299)))
     }
 
-//    Listener de los botones flotantes del mapa
+//--------------Listener de los botones flotantes del mapa--------------------------------\\
     private fun listenerBoton(){
 //        Acciones del boton de la derecha del mapa
         binding.fab.setOnClickListener{
             if(ban == false){
                 Toast.makeText(getContext(), "Rutas", Toast.LENGTH_SHORT).show()
                 ban = true
-                ATAZ()
-                AMARILLO()
-                //createRoute("-96.902440, 19.525388", "-96.923477, 19.537108")
+                //ATAZ()
+                //AMARILLO()
+                SUX2()
 
             }else if(ban == true){
                 Toast.makeText(getContext(), "Limpiar mapa", Toast.LENGTH_SHORT).show()
@@ -132,9 +132,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         if (googleMap != null) {
             map = googleMap
             zoom()
-            paradasConocidas()
-            ruta1()
-            //createRoute()
+            //paradasConocidas()
+            //ruta1()
+            //AMARILLO()
             map.setOnMyLocationButtonClickListener(this) //Mensaje cuando se toque el boton de ubicación actual
             map.setOnMyLocationClickListener(this) //Corrdenadas de cuando se de clcick en la ubicación actual (NO el boton)
             enableLocation()
@@ -1619,11 +1619,12 @@ private fun AMARILLO(){
     createRoute("-96.891360,19.505620","-96.890580,19.504534",R.color.AMARILLO, "Ruta: Amarillo")
     createRoute("-96.890580,19.504534","-96.890537,19.504739",R.color.AMARILLO, "Ruta: Amarillo")
     createRoute("-96.890537,19.504739","-96.890722,19.505743",R.color.AMARILLO, "Ruta: Amarillo")
-    createRoute("-96.890722,19.505743","-96.878139,19.503100",R.color.AMARILLO, "Ruta: Amarillo")
-    createRoute("-96.878139,19.503100","-96.878066,19.503253",R.color.AMARILLO, "Ruta: Amarillo")
-    createRoute("-96.878066,19.503253","-96.878340,19.506112",R.color.AMARILLO, "Ruta: Amarillo")
-    createRoute("-96.878340,19.506112","-96.868707,19.508221",R.color.AMARILLO, "Ruta: Amarillo")
-    createRoute("-96.868707,19.508221","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
+    createRoute("-96.890722,19.505743","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
+    //createRoute("-96.890722,19.505743","-96.878139,19.503100",R.color.AMARILLO, "Ruta: Amarillo")
+    //createRoute("-96.878139,19.503100","-96.878066,19.503253",R.color.AMARILLO, "Ruta: Amarillo")
+    //createRoute("-96.878066,19.503253","-96.878340,19.506112",R.color.AMARILLO, "Ruta: Amarillo")
+    //createRoute("-96.878340,19.506112","-96.868707,19.508221",R.color.AMARILLO, "Ruta: Amarillo")
+    //createRoute("-96.868707,19.508221","-96.875261,19.513131",R.color.AMARILLO, "Ruta: Amarillo")
 
     //createRoute("","",R.color.AMARILLO, "")
 
@@ -1650,12 +1651,36 @@ private fun AMARILLO(){
 //Ruta del SUX de 20 de noviembre
 //    Ruta creada con api creadora de rutas
 private fun SUX1(){
-    createRoute("-96.927010,19.542316","-96.909549,19.526640",R.color.SUX1, "Ruta: SUX 20 de Nov")
+    createRoute("-96.927010,19.542316","-96.909697,19.526759",R.color.SUX1, "Ruta: SUX 20 de Nov")
+    createRoute("-96.909697,19.526759","-96.906752,19.525588",R.color.SUX2, "Ruta: SUX 20 de Nov")
+    createRoute("-96.906752,19.525588","-96.875525,19.512891",R.color.SUX2, "Ruta: SUX 20 de Nov")
+    createRoute("-96.875525,19.512891","-96.856217,19.507713",R.color.SUX1, "Ruta: SUX 20 de Nov")
+    createRoute("-96.856217,19.507713","-96.858375,19.513317",R.color.SUX1, "Ruta: SUX 20 de Nov")
+    createRoute("-96.858375,19.513317","-96.875258,19.513161",R.color.SUX2, "Ruta: SUX 20 de Nov")
+    createRoute("-96.875258,19.513161","-96.909639,19.526767",R.color.SUX1, "Ruta: SUX 20 de Nov")
+    createRoute("-96.909639,19.526767","-96.926305,19.541471",R.color.SUX2, "Ruta: SUX 20 de Nov")
+    createRoute("-96.926305,19.541471","-96.930085,19.562400",R.color.SUX2, "Ruta: SUX 20 de Nov")
+    createRoute("-96.930085,19.562400","-96.927010,19.542316",R.color.SUX1, "Ruta: SUX 20 de Nov")
+}
+private fun SUX2(){
+    createRoute("-96.926271,19.540507","-96.932883,19.532421",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.932883,19.532421","-96.920064,19.525970",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.920064,19.525970","-96.916445,19.524522",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.916445,19.524522","-96.905822,19.525459",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.905822,19.525459","-96.861405,19.503760",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.861405,19.503760","-96.869164,19.508822",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.869164,19.508822","-96.905632,19.525569",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.905632,19.525569","-96.928986,19.528720",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.928986,19.528720","-96.930382,19.536761",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.930382,19.536761","-96.927027,19.543042",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.927027,19.543042","-96.929829,19.562514",R.color.SUX2, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.929829,19.562514","-96.936458,19.549392",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.936458,19.549392","-96.928960,19.561946",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
+    createRoute("-96.928960,19.561946","-96.926271,19.540507",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
 
-    //createRoute("","",R.color.AMARILLO, "")
+    //createRoute("","",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
 
 }
-
 //Funcion retrofit (api creadora de rutas)
 private fun createRoute(start:String, end:String, color:Int, msg: String){
     CoroutineScope(Dispatchers.IO).launch {
