@@ -3,6 +3,7 @@ package com.example.kaniwa
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Location
@@ -27,6 +28,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener{
 
@@ -97,33 +100,56 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         binding.listaRutas.setOnClickListener{
             val selectedItems = ArrayList<Int>() // Where we track the selected items
             val builder = AlertDialog.Builder(getContext())
+            val arrayLista = arrayOf("ruta 1", "ruta 2")
+            val checkLista = booleanArrayOf(
+                    false,
+                    false
+                    )
+            val rutasLista = Arrays.asList (*arrayLista)
+
+            Toast.makeText(getContext(), "LISTA RUTAS", Toast.LENGTH_SHORT).show()
             // Set the dialog title
-            builder.setTitle("Lista Rutas")
+            builder.setTitle("Lista de rutas")
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
-                .setMultiChoiceItems(R.array.listaRutas, null,
-                    DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
-                        if (isChecked) {
-                            // If the user checked the item, add it to the selected items
-                            selectedItems.add(which)
-                        } else if (selectedItems.contains(which)) {
-                            // Else, if the item is already in the array, remove it
-                            selectedItems.remove(which)
-                        }
-                    })
+//                .setMultiChoiceItems(R.array.listaRutas, null, DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
+//                        if (isChecked) {
+//                            // If the user checked the item, add it to the selected items
+//                            selectedItems.add(which)
+//                        } else if (selectedItems.contains(which)) {
+//                            // Else, if the item is already in the array, remove it
+//                            selectedItems.remove(which)
+//                        }
+//                    })
+                builder.setMultiChoiceItems(arrayLista, checkLista){dialog, which,iscCHecked ->
+                    checkLista[which] =iscCHecked
+                    val currentItem = rutasLista[which]
+                    Toast.makeText (getContext(),currentItem+" "+ iscCHecked, Toast.LENGTH_SHORT).show()
+                }
                 // Set the action buttons
-                .setPositiveButton(R.string.ok,
+                builder.setPositiveButton(R.string.ok,
                     DialogInterface.OnClickListener { dialog, id ->
                         // User clicked OK, so save the selectedItems results somewhere
                         // or return them to the component that opened the dialog
-                        //...
+                        /*tv.setText("La Zona Seleccionada es..... \n");
+            for (int i = 0; i<checkedColors.length; i++){
+                boolean checked = checkedColors[i];
+                if (checked) {
+                    tv.setText(tv.getText() + colorsList.get(i) + "\n");
+                }
+            }*/
+                        Toast.makeText(getContext(),"La ruta seleccionada es", Toast.LENGTH_SHORT);
                     })
-                .setNegativeButton(R.string.cancel,
+                builder.setNegativeButton(R.string.cancel,
                     DialogInterface.OnClickListener { dialog, id ->
-                        //...
+                        dialog.cancel()
                     })
-
-            builder.create()
+                builder.setNeutralButton("+ Favorito",
+                    DialogInterface.OnClickListener{ dialog, id ->
+                    //Insertar codigo de favorito
+                })
+            val dialog =builder.create()
+            dialog.show()
         }
     }
 
