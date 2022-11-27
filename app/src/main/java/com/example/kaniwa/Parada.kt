@@ -2,15 +2,19 @@ package com.example.kaniwa
 
 import com.google.android.gms.maps.model.LatLng
 
-class Parada(nombre:String,coord:LatLng,rutas:Array<String>){
+class Parada(nombre:String,coord:LatLng,rutas:MutableList<String>){
     var nombre: String = nombre
     var coord: LatLng = coord
-    var rutas: Array<String> = rutas
+    var rutas: MutableList<String> = rutas
 
     public fun verRutas(){
         for(ruta in rutas){
             println(ruta)
         }
+    }
+
+    public fun coordenadas():LatLng{
+        return coord
     }
 
     public fun comprobarRuta(nombreRuta:String):Boolean{
@@ -24,7 +28,7 @@ class Parada(nombre:String,coord:LatLng,rutas:Array<String>){
         return bandera
     }
 
-    public fun calcularDistancia(latLng: LatLng):Number{
+    public fun calcularDistancia(latLng: LatLng):Double{
         val radio = 6371
         var difLat = Math.toRadians(latLng.latitude - coord.latitude)
         var difLon = Math.toRadians(latLng.longitude - coord.longitude)

@@ -35,7 +35,9 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     private lateinit var map:GoogleMap
     private lateinit var mapView:MapView
     private var ban = false
-    var parada1 = Parada("Parada1",LatLng(19.541275, -96.927288),arrayOf("Ruta1","Ruta2"))
+    val paradas = mutableListOf<Parada>()
+    var parada1 = Parada("Parada1",LatLng(19.541275, -96.927288),mutableListOf("Ruta1","Ruta2"))
+
     //private var start:String = "-96.902440, 19.525388"
     //private var end:String = "-96.923477, 19.537108"
 
@@ -71,8 +73,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         mapView.getMapAsync(this);
         listenerBoton()
         //prueba de clase parada
-        parada1.verRutas()
-        println(parada1.calcularDistancia(LatLng(20.070360, -97.064299)))
     }
 
 //--------------Listener de los botones flotantes del mapa--------------------------------\\
@@ -132,12 +132,21 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         if (googleMap != null) {
             map = googleMap
             zoom()
-            //paradasConocidas()
+            paradasConocidasList()
             //ruta1()
             //AMARILLO()
             map.setOnMyLocationButtonClickListener(this) //Mensaje cuando se toque el boton de ubicación actual
             map.setOnMyLocationClickListener(this) //Corrdenadas de cuando se de clcick en la ubicación actual (NO el boton)
             enableLocation()
+        }
+    }
+
+    public fun compararDistancia(latLng: LatLng){
+        for(parada in paradas){
+            if(parada.calcularDistancia(latLng) < 0.3){
+                val aux = MarkerOptions().position(parada.coord).title(parada.nombre).icon(BitmapDescriptorFactory.defaultMarker(110F))
+                map.addMarker(aux)
+            }
         }
     }
 
@@ -224,12 +233,11 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         val c0 = LatLng(19.542635, -96.927233)
         val economia = MarkerOptions().position(c0).title("Economía")
         map.addMarker(economia)
+
         //Agua Santa 1
         val c1 = LatLng(19.529693, -96.900883)
         val aguaSanta1 = MarkerOptions().position(c1).title("Agua Santa 1")
         map.addMarker(aguaSanta1)
-        //map.addMarker(MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.mipmap.
-        // ic_paradas1)).anchor(0.0f,1.0f).position(coordenadas).title("Agua Santa 1"))
 
         //Agua Santa 2
         val c2 = LatLng(19.529690, -96.900371)
@@ -276,8 +284,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         val pomona = MarkerOptions().position(c9).title("Pomona")
         map.addMarker(pomona)
 
-
-
         /*
         //
         val c = LatLng()
@@ -295,6 +301,42 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         map.addMarker()
          */
 
+    }
+
+    private fun paradasConocidasList(){
+        //Parada Fei
+        var economia = Parada("Economia",LatLng(19.542635, -96.927233),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(economia)
+        //Agua Santa 1
+        var aguaSanta1 = Parada("Agua Santa 1",LatLng(19.529693, -96.900883),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(aguaSanta1)
+        //Agua Santa 2
+        var aguaSanta2 = Parada("Agua Santa 2",LatLng(19.529690, -96.900371),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(aguaSanta2)
+        //Doña Falla
+        var parqueDonaFalla = Parada("Parque Doña Falla",LatLng(19.522595, -96.894830),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(parqueDonaFalla)
+        //BIENESTAR
+        var secretariaBienestar = Parada("Secretaria Bienestar",LatLng(19.522595, -96.894830),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(secretariaBienestar)
+        //Parque natura
+        var parqueNatura = Parada("Parque Natura",LatLng(19.518945, -96.883305),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(parqueNatura)
+        //Plaza americas
+        var plazaAmericas = Parada("Plaza Americas",LatLng(19.513259188258463, -96.8756648576462),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(plazaAmericas)
+        //Parada frente a plaza americas
+        var plazaAmericas2 = Parada("Plaza Americas 2",LatLng(19.513174, -96.875285),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(plazaAmericas2)
+        //Plaza Animas
+        var plazaAnimas = Parada("Plaza Animas",LatLng(19.518794276525053, -96.88282015160287),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(plazaAnimas)
+        //Parada CorpusGym
+        var corpusGym = Parada("CorpusGym",LatLng(19.532288, -96.905237),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(corpusGym)
+        //Pomona
+        var pomona = Parada("Pomona",LatLng(19.531994, -96.905337),mutableListOf("Ruta1","Ruta2"))
+        paradas.add(pomona)
     }
 
 //    Coordenadas de paradas de la ruta 1 de acuerdo a mapaton.org

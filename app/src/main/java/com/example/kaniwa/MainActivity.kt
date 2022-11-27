@@ -159,6 +159,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             override fun onPlaceSelected(place: Place){
                 val latLong = "latitud ${place.latLng.latitude!!} longitud ${place.latLng?.longitude}"
                 buscarUbi(place.latLng)
+                comparar(place.latLng)
             }
             override fun onError(status: Status) {
                 Toast.makeText(applicationContext,"No se selecciono destino",Toast.LENGTH_LONG).show()
@@ -185,6 +186,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val mapFrag = MapFragment.getInstance()
         if(mapFrag!=null){
             mapFrag.setZoom(latLng)
+        }else{
+            Toast.makeText(applicationContext, "MapFragment null",Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun comparar(latLng: LatLng){
+        val mapFrag = MapFragment.getInstance()
+        if(mapFrag!=null){
+            mapFrag.compararDistancia(latLng)
         }else{
             Toast.makeText(applicationContext, "MapFragment null",Toast.LENGTH_LONG).show()
         }

@@ -11,17 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-            <!-- <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp">
-                <fragment android:id="@+id/autocomplete_fragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment" />
-            </androidx.cardview.widget.CardView> -->
         <include layout="@layout/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
