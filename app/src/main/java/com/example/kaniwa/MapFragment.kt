@@ -87,6 +87,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 //        Acciones del boton de la derecha del mapa
         binding.fab.setOnClickListener{
             map.clear()
+            Toast.makeText(getContext(), "Limpiando mapa", Toast.LENGTH_SHORT).show()
         }
 
 //        Acciones del boton de la lista de rutas con checkbox a la izquierda del mapa
