@@ -17,6 +17,8 @@ import android.webkit.WebView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.kaniwa.databinding.ActivityTutorialBinding
+import com.example.kaniwa.databinding.FragmentFavoritasBinding
 import com.example.kaniwa.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -35,9 +37,13 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
-    private lateinit var map:GoogleMap
+    lateinit var binding2: FragmentFavoritasBinding
+
+
+    //private  lateinit var binding2: FragmentFavoritasBinding
+    public lateinit var map:GoogleMap
     private lateinit var mapView:MapView
-    private var ban = false
+    var ban = false
     val paradas = mutableListOf<Parada>()
     var parada1 = Parada("Parada1",LatLng(19.541275, -96.927288),mutableListOf("Ruta1","Ruta2"))
 
@@ -55,6 +61,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding2 = FragmentFavoritasBinding.inflate(layoutInflater)
         arguments?.let {
 
         }
@@ -75,12 +82,17 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         mapView.onResume()
         mapView.getMapAsync(this);
         listenerBoton()
+
         //prueba de clase parada
     }
 
 //--------------Listener de los botones flotantes del mapa--------------------------------\\
+
     private fun listenerBoton(){
 //        Acciones del boton de la derecha del mapa
+
+
+
         binding.fab.setOnClickListener{
             if(ban == false){
                 Toast.makeText(getContext(), "Rutas", Toast.LENGTH_SHORT).show()
@@ -191,7 +203,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     }
 
 //    Polilineas a mano de una ruta
-    private fun ATAZ(){
+    public fun ATAZ(){
         val polylineOptions = PolylineOptions()
             .add(LatLng(19.513159, -96.875301)).add(LatLng(19.514231, -96.876293)).add(LatLng(19.514867, -96.877655))
             .add(LatLng(19.515570, -96.879629)).add(LatLng(19.515919, -96.879994)).add(LatLng(19.517322, -96.880932))
@@ -1730,7 +1742,7 @@ private fun SUX1(){
     createRoute("-96.926305,19.541471","-96.930085,19.562400",R.color.SUX2, "Ruta: SUX 20 de Nov")
     createRoute("-96.930085,19.562400","-96.927010,19.542316",R.color.SUX1, "Ruta: SUX 20 de Nov")
 }
-private fun SUX2(){
+public fun SUX2(){
     createRoute("-96.926271,19.540507","-96.932883,19.532421",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
     createRoute("-96.932883,19.532421","-96.920064,19.525970",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
     createRoute("-96.920064,19.525970","-96.916445,19.524522",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")

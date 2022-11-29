@@ -10,7 +10,7 @@
         android:title="Costos de pasaje"
         android:icon="@drawable/iconoprecios"/>
     <item
-        android:id="@+id/nav_item_three"
+        android:id="@+id/FavoritasFragment"
         android:title="Favoritos"
         android:icon="@drawable/iconofavoritos"/>
     <item

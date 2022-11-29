@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId){
             R.id.mapFragment -> replaceFragment(MapFragment(),item.title.toString())
             R.id.costosFragment -> replaceFragment(PruebaFragment(),item.title.toString())
-            R.id.nav_item_three -> Toast.makeText(this,"Item3",Toast.LENGTH_SHORT).show()
+            R.id.FavoritasFragment -> replaceFragment(fragment_favoritas(),item.title.toString())
             R.id.cerrar -> logout()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
