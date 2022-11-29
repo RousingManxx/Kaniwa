@@ -100,10 +100,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         registerReceiver(broadcastReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION) )
     }
 
-    override fun onPause() {
+    /*override fun onPause() {
         super.onPause()
         unregisterReceiver(broadcastReceiver)
-    }
+    }*/
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

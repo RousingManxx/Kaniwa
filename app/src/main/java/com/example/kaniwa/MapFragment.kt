@@ -47,9 +47,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
     val paradas = mutableListOf<Parada>()
     var parada1 = Parada("Parada1",LatLng(19.541275, -96.927288),mutableListOf("Ruta1","Ruta2"))
 
-    //private var start:String = "-96.902440, 19.525388"
-    //private var end:String = "-96.923477, 19.537108"
-
     companion object{
         const val REQUEST_CODE_LOCATION = 0
         lateinit var instance: MapFragment
@@ -82,79 +79,61 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
         mapView.onResume()
         mapView.getMapAsync(this);
         listenerBoton()
-
-        //prueba de clase parada
     }
 
 //--------------Listener de los botones flotantes del mapa--------------------------------\\
 
     private fun listenerBoton(){
 //        Acciones del boton de la derecha del mapa
-
-
-
         binding.fab.setOnClickListener{
-            if(ban == false){
-                Toast.makeText(getContext(), "Rutas", Toast.LENGTH_SHORT).show()
-                ban = true
-                //ATAZ()
-                //AMARILLO()
-                SUX2()
-
-            }else if(ban == true){
-                Toast.makeText(getContext(), "Limpiar mapa", Toast.LENGTH_SHORT).show()
-                ban = false
-                map.clear()
-            }
+            map.clear()
         }
 
-//        Acciones del boton de la lista de rutas con checkbox
+//        Acciones del boton de la lista de rutas con checkbox a la izquierda del mapa
         binding.listaRutas.setOnClickListener{
             val selectedItems = ArrayList<Int>() // Where we track the selected items
             val builder = AlertDialog.Builder(getContext())
-            val arrayLista = arrayOf("ruta 1", "ruta 2")
+            val arrayLista = arrayOf("Ruta 1", "Ruta 2" , "Ruta 3", "Mostrar todas las paradas")
             val checkLista = booleanArrayOf(
+                    false,
+                    false,
                     false,
                     false
                     )
             val rutasLista = Arrays.asList (*arrayLista)
 
             Toast.makeText(getContext(), "LISTA RUTAS", Toast.LENGTH_SHORT).show()
-            // Set the dialog title
+            // Ponerle titulo a el alertBox de las rutas
             builder.setTitle("Lista de rutas")
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
-//                .setMultiChoiceItems(R.array.listaRutas, null, DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
-//                        if (isChecked) {
-//                            // If the user checked the item, add it to the selected items
-//                            selectedItems.add(which)
-//                        } else if (selectedItems.contains(which)) {
-//                            // Else, if the item is already in the array, remove it
-//                            selectedItems.remove(which)
-//                        }
-//                    })
                 builder.setMultiChoiceItems(arrayLista, checkLista){dialog, which,iscCHecked ->
                     checkLista[which] =iscCHecked
                     val currentItem = rutasLista[which]
                     Toast.makeText (getContext(),currentItem+" "+ iscCHecked, Toast.LENGTH_SHORT).show()
                 }
-                // Set the action buttons
-                builder.setPositiveButton(R.string.ok,
-                    DialogInterface.OnClickListener { dialog, id ->
-                        // User clicked OK, so save the selectedItems results somewhere
-                        // or return them to the component that opened the dialog
-                        /*tv.setText("La Zona Seleccionada es..... \n");
-            for (int i = 0; i<checkedColors.length; i++){
-                boolean checked = checkedColors[i];
-                if (checked) {
-                    tv.setText(tv.getText() + colorsList.get(i) + "\n");
-                }
-            }*/
-                        Toast.makeText(getContext(),"La ruta seleccionada es", Toast.LENGTH_SHORT);
-                    })
+                // Acciones de los botones
+                builder.setPositiveButton(R.string.ok){ dialog, id ->
+                        Toast.makeText(getContext(),"La/las rutas fueron seleccionadas", Toast.LENGTH_SHORT);
+                        for (i in checkLista.indices) {
+                            val checked = checkLista[i]
+                            if (i == 0 && checked){
+                                SUX1()
+                            }else if (i == 1 && checked){
+                                SUX2()
+                            }else if (i == 2 && checked){
+                                AMARILLO()
+                            }else if (i == 2 && checked){
+                                ruta1()
+                                ruta2()
+                                ruta3()
+                                ruta4()
+                            }
+                        }
+                    }
                 builder.setNegativeButton(R.string.cancel,
                     DialogInterface.OnClickListener { dialog, id ->
-                        dialog.cancel()
+                        dialog.dismiss()
                     })
                 builder.setNeutralButton("+ Favorito",
                     DialogInterface.OnClickListener{ dialog, id ->
@@ -1414,7 +1393,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
 
     }
 
-//    Ruta 5 en construccion porque se tomaron otras prioridades
+//    Ruta 5 en construccion
     /*private fun ruta5(){
     //Culturas Veracruzanas 120, Reserva Territorial, 91096 Xalapa-Enríquez
     val c01 = LatLng(19.508349182109, -96.87418855761308)
@@ -1728,8 +1707,7 @@ private fun AMARILLO(){
 
 }
 
-//Ruta del SUX de 20 de noviembre
-//    Ruta creada con api creadora de rutas
+//   Ruta del SUX de 20 de noviembre //// Ruta creada con api creadora de rutas
 private fun SUX1(){
     createRoute("-96.927010,19.542316","-96.909697,19.526759",R.color.SUX1, "Ruta: SUX 20 de Nov")
     createRoute("-96.909697,19.526759","-96.906752,19.525588",R.color.SUX2, "Ruta: SUX 20 de Nov")
@@ -1742,6 +1720,7 @@ private fun SUX1(){
     createRoute("-96.926305,19.541471","-96.930085,19.562400",R.color.SUX2, "Ruta: SUX 20 de Nov")
     createRoute("-96.930085,19.562400","-96.927010,19.542316",R.color.SUX1, "Ruta: SUX 20 de Nov")
 }
+
 public fun SUX2(){
     createRoute("-96.926271,19.540507","-96.932883,19.532421",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
     createRoute("-96.932883,19.532421","-96.920064,19.525970",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
@@ -1761,16 +1740,17 @@ public fun SUX2(){
     //createRoute("","",R.color.SUX1, "Ruta: SUX Av. Avila Camacho")
 
 }
+
 //Funcion retrofit (api creadora de rutas)
 private fun createRoute(start:String, end:String, color:Int, msg: String){
     CoroutineScope(Dispatchers.IO).launch {
         val call = getRetrofit().create(ApiService::class.java)
             .getRoute("5b3ce3597851110001cf624838aa5637335c4c80a982d049c947aa76", start, end)
         if(call.isSuccessful){
-            Log.i("erick", "Si jalo")
+            Log.i("Funciona", "Si jalo")
             drawRoute(call.body(), color, msg)
         }else{
-            Log.i("erick", "KO")
+            Log.i("No funciona", "KO")
 
         }
     }
