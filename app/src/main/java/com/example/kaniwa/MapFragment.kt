@@ -124,11 +124,11 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButton
                                 SUX2()
                             }else if (i == 2 && checked){
                                 AMARILLO()
-                            }else if (i == 2 && checked){
-                                ruta1()
-                                ruta2()
-                                ruta3()
-                                ruta4()
+                            }else if (i == 3 && checked){
+                                getInstance().ruta1()
+                                getInstance().ruta2()
+                                getInstance().ruta3()
+                                getInstance().ruta4()
                             }
                         }
                     }
