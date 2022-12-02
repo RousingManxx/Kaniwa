@@ -1623,8 +1623,6 @@ private fun enableLocation(){
 private fun requestLocationPermission(){
     if(ActivityCompat.shouldShowRequestPermissionRationale(getContext() as Activity, Manifest.permission.ACCESS_FINE_LOCATION)){
         Toast.makeText(getContext(), "Ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
-    }else{
-        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), Maps.REQUEST_CODE_LOCATION)
     }
 }
 
@@ -1633,17 +1631,7 @@ override fun onRequestPermissionsResult(
     requestCode: Int,
     permissions: Array<out String>,
     grantResults: IntArray
-) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    when(requestCode){
-        Maps.REQUEST_CODE_LOCATION -> if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            map.isMyLocationEnabled = true
-        }else{
-            Toast.makeText(getContext(), "Para utilizar la localización, ve a ajustes y acepta los permisos", Toast.LENGTH_SHORT).show()
-        }
-        else->{}
-    }
-}
+) {}
 
 //    Accion de darle al boton de mi localizacion
 override fun onMyLocationButtonClick(): Boolean {
@@ -1786,50 +1774,3 @@ private fun getRetrofit(): Retrofit {
         .build()
 }
 }
-
-//Ruta manual de ruta amarillo
-/*
-private fun AMARILLO(){
-    val polylineOptions = PolylineOptions()
-        //.add(LatLng())
-        .width(15f)
-        .color(ContextCompat.getColor(requireContext(), R.color.ATAZ))
-    val polyline = map.addPolyline(polylineOptions)
-    val pattern = listOf(
-        Dot(), Gap(10f), Dash(50f), Gap(10f)
-    )
-
-    polyline.pattern = pattern
-    polyline.startCap = RoundCap()
-    polyline.endCap = RoundCap()
-    //polyline.endCap = CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.dcp1))
-    polyline.isClickable = true
-    map.setOnPolylineClickListener { Toast.makeText(getContext(),"Ruta: ATAZ",Toast.LENGTH_SHORT).show() }
-
-}
-*/
-
-/*
-private fun drawRoute(routeResponse: RouteResponse?){
-    val polylineOptions = PolylineOptions()
-    routeResponse?.features?.first()?.geometry?.coordinates?.forEach{
-        polylineOptions.add(LatLng(it[1],it[0]))
-    }
-    runOnUiThread{
-        polylineOptions.width(15f).color(ContextCompat.getColor(requireContext(), R.color.AMARILLO))
-        val poly = map.addPolyline(polylineOptions)
-    }
-}
-fun Fragment?.runOnUiThread(action:()-> Unit){
-    this?:return
-    if(!isAdded) return
-    activity?.runOnUiThread(action)
-}
-
-private fun getRetrofit(): Retrofit {
-    return Retrofit.Builder()
-        .baseUrl("https://api.openrouteservice.org/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-}
-*/
