@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
-        setup(email ?: "", provider ?: "")
 
         //GUARDADO DE DATOS
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
@@ -165,21 +164,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(applicationContext,"No se selecciono destino",Toast.LENGTH_LONG).show()
             }
         })
-    }
-
-    private fun setup(email: String, provider: String) {
-        title = "Inicio"
-        /*
-        binding.closeButton.setOnClickListener {
-            //Borrado de datos de sesion
-            val prefs =
-                getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-            prefs.clear()
-            prefs.apply()
-
-            FirebaseAuth.getInstance().signOut()
-            onBackPressed()
-            */
     }
 
     private fun buscarUbi(latLng: LatLng){
